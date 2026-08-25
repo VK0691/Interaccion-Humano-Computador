@@ -30,26 +30,8 @@ Aquí documentaremos nuestro proceso de diseño, desarrollo y pruebas de usabili
 
 ---
 
-## 👥 Equipo de Trabajo
 
-| Rol | Nombre | Superpoder |
-|-----|--------|------------|
-| 🚀 **Líder de Proyecto** | **Bryan Guatemal** | Visión estratégica y gestión del caos. |
-| ⚙️ **Arquitecto de Experiencia** | **Carlos Bejarano** | Puente entre la lógica del código y la psicología del usuario. |
-| 🎨 **Maestra de la Interfaz** | **Karen Molina** | Crea interfaces que son un placer usar (y mirar). |
-| 🧠 **Filósofo de la Usabilidad** | **Tomás Solís** | Cuestiona cada clic y hace que el diseño tenga sentido humano. |
 
----
-
-## 🧩 Objetivo del Proyecto
-
-Diseñar y evaluar una interfaz interactiva que resuelva una necesidad real, aplicando principios de:
-
-- **Usabilidad** (eficiencia, facilidad de aprendizaje, satisfacción).
-- **Accesibilidad** (diseño inclusivo para todos los usuarios).
-- **Diseño Centrado en el Usuario** (investigación, prototipado y pruebas).
-
----
 
 ## 📂 Estructura del Repositorio
 
