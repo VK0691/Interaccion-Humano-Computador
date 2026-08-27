@@ -12,7 +12,7 @@ Aquí documentaremos nuestro proceso de diseño, desarrollo y pruebas de usabili
 | 🚀 **Auditor de accesibilidad** | **Bryan Guatemal** | Visión estratégica y gestión del caos. |
 | ⚙️ **Coordinador** | **Carlos Bejarano** | Puente entre la lógica del código y la psicología del usuario. |
 | 🎨 **Auditor de usabilidad** | **Karen Molina** | Crea interfaces que son un placer usar (y mirar). |
-| 🧠 **Auditor de accesibilidad** | **Tomás Solís** | Cuestiona cada clic y hace que el diseño tenga sentido humano. |
+| 🧠 **Relator** | **Tomás Solís** | Cuestiona cada clic y hace que el diseño tenga sentido humano. |
 
 ---
 
