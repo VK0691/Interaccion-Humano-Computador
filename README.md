@@ -9,10 +9,10 @@ Aquí documentaremos nuestro proceso de diseño, desarrollo y pruebas de usabili
 
 | Rol | Nombre | Superpoder |
 |-----|--------|------------|
-| 🚀 **Líder de Proyecto** | **Bryan Guatemal** | Visión estratégica y gestión del caos. |
-| ⚙️ **Coordinador técnico** | **Carlos Bejarano** | Puente entre la lógica del código y la psicología del usuario. |
-| 🎨 **Interfaz** | **Karen Molina** | Crea interfaces que son un placer usar (y mirar). |
-| 🧠 **Usabilidad** | **Tomás Solís** | Cuestiona cada clic y hace que el diseño tenga sentido humano. |
+| 🚀 **Auditor de accesibilidad** | **Bryan Guatemal** | Visión estratégica y gestión del caos. |
+| ⚙️ **Coordinador** | **Carlos Bejarano** | Puente entre la lógica del código y la psicología del usuario. |
+| 🎨 **Auditor de usabilidad** | **Karen Molina** | Crea interfaces que son un placer usar (y mirar). |
+| 🧠 **Relator** | **Tomás Solís** | Cuestiona cada clic y hace que el diseño tenga sentido humano. |
 
 ---
 
