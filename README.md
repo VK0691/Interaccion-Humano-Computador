@@ -7,7 +7,7 @@ Aquí documentaremos nuestro proceso de diseño, desarrollo y pruebas de usabili
 
 ## 👥 Equipo de Trabajo
 
-| Rol | Nombre | Superpoder |
+| Rol | Nombre | Responsabilidad |
 |-----|--------|------------|
 | 🚀 **Auditor de accesibilidad** | **Bryan Guatemal** | Visión estratégica y gestión del caos. |
 | ⚙️ **Coordinador** | **Carlos Bejarano** | Puente entre la lógica del código y la psicología del usuario. |
@@ -32,7 +32,7 @@ Aquí documentaremos nuestro proceso de diseño, desarrollo y pruebas de usabili
 
 ## 👥 Equipo de Trabajo
 
-| Rol | Nombre | Superpoder |
+| Rol | Nombre | Responsabilidad |
 |-----|--------|------------|
 | 🚀 **Líder de Proyecto** | **Bryan Guatemal** | Visión estratégica y gestión del caos. |
 | ⚙️ **Arquitecto de Experiencia** | **Carlos Bejarano** | Puente entre la lógica del código y la psicología del usuario. |
