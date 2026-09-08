@@ -53,7 +53,6 @@ Diseñar y evaluar una interfaz interactiva que resuelva una necesidad real, apl
 
 ## 📂 Estructura del Repositorio
 
-```plaintext
 /
 ├── docs/               # Documentación del proyecto (investigación, entrevistas, etc.)
 ├── prototypes/         # Prototipos (baja/alta fidelidad)
