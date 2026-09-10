@@ -12,7 +12,7 @@ Aquí documentaremos nuestro proceso de diseño, desarrollo y pruebas de usabili
 | 🚀 **Auditor de accesibilidad** | **Bryan Guatemal** | Visión estratégica y gestión del caos. |
 | ⚙️ **Coordinador** | **Carlos Bejarano** | Puente entre la lógica del código y la psicología del usuario. |
 | 🎨 **Auditor de usabilidad** | **Karen Molina** | Crea interfaces que son un placer usar (y mirar). |
-| 🧠 **Relator** | **Tomás Solís** | Cuestiona cada clic y hace que el diseño tenga sentido humano. |
+| 🧠 **QA** | **Tomás Solís** | Cuestiona cada clic y hace que el diseño tenga sentido humano. |
 
 ---
 
@@ -30,16 +30,6 @@ Aquí documentaremos nuestro proceso de diseño, desarrollo y pruebas de usabili
 
 ---
 
-## 👥 Equipo de Trabajo
-
-| Rol | Nombre | Superpoder |
-|-----|--------|------------|
-| 🚀 **Líder de Proyecto** | **Bryan Guatemal** | Visión estratégica y gestión del caos. |
-| ⚙️ **Arquitecto de Experiencia** | **Carlos Bejarano** | Puente entre la lógica del código y la psicología del usuario. |
-| 🎨 **Maestra de la Interfaz** | **Karen Molina** | Crea interfaces que son un placer usar (y mirar). |
-| 🧠 **Filósofo de la Usabilidad** | **Tomás Solís** | Cuestiona cada clic y hace que el diseño tenga sentido humano. |
-
----
 
 ## 🧩 Objetivo del Proyecto
 
