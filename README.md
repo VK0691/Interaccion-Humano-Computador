@@ -8,7 +8,7 @@ Link al figma:
 https://www.figma.com/make/J0VqBPFWw3gIr8dzSbO7L3/Inicio-sistema-gesti%C3%B3n-fisioterapia?t=eNt9tzUoLkDFqLu2-1
 ## 👥 Equipo de Trabajo
 
-| Rol | Nombre | Superpoder |
+| Rol | Nombre | Responsabilidad |
 |-----|--------|------------|
 | 🚀 **Auditor de accesibilidad** | **Bryan Guatemal** | Visión estratégica y gestión del caos. |
 | ⚙️ **Coordinador** | **Carlos Bejarano** | Puente entre la lógica del código y la psicología del usuario. |
@@ -30,6 +30,7 @@ Bienvenido al repositorio oficial del equipo para la materia de **Interacción H
 Aquí documentaremos nuestro proceso de diseño, desarrollo y pruebas de usabilidad para crear experiencias digitales centradas en el usuario.
 
 ---
+
 
 
 ## 🧩 Objetivo del Proyecto
