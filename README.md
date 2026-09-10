@@ -114,7 +114,7 @@ Definición de indicadores y métricas para medir la efectividad, eficiencia y s
 | Eficiencia | Tiempo de ejecución | T1, T2, T3 |
 | Satisfacción | Comentarios y percepción del usuario | T1, T2, T3 |
 
-**Responsable:** 🧠 **Tomás Solís** (Relator)
+**Responsable:** 🧠 **Tomás Solís** (QA)
 
 ---
 
@@ -158,7 +158,7 @@ Registro de pruebas de usabilidad realizadas con usuarios reales (fisioterapeuta
 | P2 (Fisioterapeuta) | Consultar historial | Sí | 1 min | 1 | "Me gusta que esté en pestañas" |
 | P3 (Administrativo) | Registrar notas | Sí | 25 seg | 0 | "El autoguardado me da tranquilidad" |
 
-**Responsable:** 🧠 **Tomás Solís** (Relator) + 🚀 **Bryan Guatemal** (Coordinación)
+**Responsable:** 🧠 **Tomás Solís** (QA) + 🚀 **Bryan Guatemal** (Coordinación)
 
 ---
 
@@ -173,4 +173,4 @@ Documentación de los problemas de usabilidad identificados en el sistema actual
 | Historial | Fisioterapeuta | Archivos desordenados en Drive | Pérdida de tiempo buscando datos | Media |
 | Notas | Fisioterapeuta | Falta autoguardado | Pérdida de datos clínicos críticos | **Alta** |
 
-**Responsable:** 🧠 **Tomás Solís** (Relator)
+**Responsable:** 🧠 **Tomás Solís** (QA)
