@@ -1,144 +1,650 @@
-\documentclass{article}
+\documentclass[11pt]{article}
 
-% Language setting
-% Replace `english' with e.g. `spanish' to change the document language
-\usepackage[spanish]{babel}
+% =========================================================
+% IDIOMA Y CODIFICACIÓN
+% =========================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+% es-tabla: usa "Tabla" en lugar de "Cuadro" en los captions
+\usepackage[spanish,es-nodecimaldot,es-tabla]{babel}
 
-\usepackage[letterpaper,top=2cm,bottom=5cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+% =========================================================
+% CONFIGURACIÓN DE PÁGINA
+% (includehead: el encabezado queda DENTRO del margen superior,
+%  así no se sale de la hoja)
+% =========================================================
+\usepackage[
+    letterpaper,
+    includehead,
+    top=1.5cm,
+    bottom=2.6cm,
+    left=2.5cm,
+    right=2.5cm,
+    headheight=58pt,
+    headsep=14pt,
+    footskip=1.2cm
+]{geometry}
 
-% Useful packages
+% =========================================================
+% PAQUETES
+% =========================================================
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{graphicx}
-\usepackage[colorlinks=true, allcolors=blue]{hyperref}
-\usepackage{amssymb} 
+\usepackage{xcolor}
 \usepackage{fancyhdr}
-\usepackage{lipsum} % Para generar texto de ejemplo
-\usepackage{multicol}
-\pagestyle{fancy} 
-\usepackage{url}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{titlesec}
+\usepackage{lastpage}
+\usepackage{microtype}
+\usepackage{float}
 
-  
+% hyperref se carga al final para evitar conflictos
+% (también se quitó \usepackage{url}, hyperref ya lo incluye)
+\usepackage[
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    urlcolor=blue!60!black,
+    citecolor=blue!60!black,
+    pdftitle={Fundamentos de IHC y Matriz Humano--Sistema},
+    pdfauthor={Equipo Tutoría Fácil UTA}
+]{hyperref}
 
-\fancyhf{} % Limpiar encabezado y pie de página por defecto
-\setlength{\headheight}{70pt} % Ajuste del tamaño del encabezado (puedes aumentar este valor si es necesario)
+% =========================================================
+% COLORES
+% =========================================================
+\definecolor{UTAblue}{HTML}{123C69}
+\definecolor{UTAlight}{HTML}{EAF1F8}
+\definecolor{UTAgray}{HTML}{5F6368}
 
-% Definición del encabezado
+% =========================================================
+% CONFIGURACIÓN GENERAL
+% =========================================================
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+
+\setlist[itemize]{
+    leftmargin=1.8em,
+    itemsep=0.25em,
+    topsep=0.25em
+}
+
+\renewcommand{\arraystretch}{1.2}
+
+\titleformat{\section}
+{\large\bfseries\color{UTAblue}}
+{\thesection.}{0.5em}{}
+
+\titleformat{\subsection}
+{\normalsize\bfseries\color{UTAblue}}
+{\thesubsection.}{0.5em}{}
+
+\titleformat{\subsubsection}
+{\normalsize\bfseries}
+{\thesubsubsection.}{0.5em}{}
+
+\titlespacing*{\section}{0pt}{1.2em}{0.6em}
+\titlespacing*{\subsection}{0pt}{1em}{0.5em}
+\titlespacing*{\subsubsection}{0pt}{0.8em}{0.4em}
+
+% =========================================================
+% LOGOS
+% =========================================================
+\newcommand{\logoUTA}{%
+    \IfFileExists{img/uta.png}{%
+        \includegraphics[width=1.65cm,height=1.4cm,keepaspectratio]{img/uta.png}%
+    }{%
+        \fbox{\rule{0pt}{1.35cm}\rule{1.35cm}{0pt}}%
+    }%
+}
+
+\newcommand{\logoFISEI}{%
+    \IfFileExists{img/fisei.png}{%
+        \includegraphics[width=1.65cm,height=1.4cm,keepaspectratio]{img/fisei.png}%
+    }{%
+        \fbox{\rule{0pt}{1.35cm}\rule{1.35cm}{0pt}}%
+    }%
+}
+
+% =========================================================
+% ENCABEZADO Y PIE
+% =========================================================
+\pagestyle{fancy}
+\fancyhf{}
 
 \fancyhead[C]{%
-    \begin{minipage}[c]{2.0cm}
+    \begin{minipage}[c]{0.15\textwidth}%
         \centering
-        \includegraphics[width=2.0cm]{img/uta.png}
+        \logoUTA
     \end{minipage}%
     \hfill
-    \begin{minipage}[c]{8cm} 
+    \begin{minipage}[c]{0.66\textwidth}%
         \centering
-        \small {\textbf{UNIVERSIDAD TÉCNICA DE AMBATO}} \\[0.1cm]
-        \scriptsize \textit{FACULTAD DE INGENIERÍA EN SISTEMAS ELECTRÓNICA E INDUSTRIAL} \\[0.1cm]
-        \scriptsize \textbf{CARRERA SOFTWARE - ITERACCION HUMANO-COMPUTADOR} \\[0.1cm]
-        \scriptsize \textbf{CICLO ACADÉMICO: AGOSTO  - DICIEMBRE 2026}
+        \small\textbf{UNIVERSIDAD TÉCNICA DE AMBATO}\\[0.08cm]
+        \scriptsize\textit{FACULTAD DE INGENIERÍA EN SISTEMAS, ELECTRÓNICA E INDUSTRIAL}\\[0.08cm]
+        \scriptsize\textbf{CARRERA DE SOFTWARE -- INTERACCIÓN HUMANO-COMPUTADOR}\\[0.08cm]
+        \scriptsize\textbf{CICLO ACADÉMICO: AGOSTO -- DICIEMBRE 2026}
     \end{minipage}%
     \hfill
-    \begin{minipage}[c]{2.0cm}
+    \begin{minipage}[c]{0.15\textwidth}%
         \centering
-        \includegraphics[width=2.0cm]{img/fisei.png}
+        \logoFISEI
     \end{minipage}%
 }
 
-\begin{document}
+\fancyfoot[L]{\scriptsize Tutoría Fácil UTA}
+\fancyfoot[C]{\scriptsize Interacción Humano-Computador}
+\fancyfoot[R]{\scriptsize Página \thepage\ de \pageref{LastPage}}
+
+\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% =========================================================
+% COMANDOS
+% =========================================================
+\newcommand{\checkitem}{\item[$\boxtimes$]}
+\newcommand{\emptyitem}{\item[$\square$]}
+
+% (renombrado: \placeholder puede chocar con otros paquetes/clases)
+\newcommand{\capturaespacio}[1]{%
 \begin{center}
-    {\large \textbf{INFORME DE TAREA}} \\    
+\fcolorbox{UTAblue}{UTAlight}{%
+    \parbox[c][4.2cm][c]{0.88\textwidth}{%
+        \centering
+        \textbf{#1}\\[0.3cm]
+        \small Inserte aquí la captura correspondiente antes de la entrega.
+    }%
+}
+\end{center}
+}
+
+% =========================================================
+% DOCUMENTO
+% =========================================================
+\begin{document}
+
+\begin{center}
+    {\Large\bfseries\color{UTAblue} INFORME DE TAREA}\\[0.35cm]
+    {\large\bfseries Fundamentos de IHC y Matriz Humano--Sistema}\\[0.2cm]
+    \rule{0.82\textwidth}{0.6pt}
 \end{center}
 
+% =========================================================
 \section{Portada}
+
 \begin{flushleft}
-\begin{tabular}{ l l }
-    \textbf{Tema:} & Tema de la tarea proporcionada por el docente \\
-    \\textbf{Unidad de Organización Curricular:} & Profesional. \\
-    \textbf{Nivel y Paralelo:} & Quinto - B \\
-    \textbf{Alumnos participante(s):} & Bejarano Masabanda Carlos Fabian\\
-    & Guatemal Avilez Bryan Stalin \\
-    & Molina Nuñez Karen Valeria\\
-    & Solis Salinas Mario Tomas\\
-    & \dotfill \\
-    \textbf{Asignatura:} & Interacion Humano / Computador \\
-    \textbf{Docente:} & Ing. Jose Ruben Caiza Caizabuano, Mg. \\
-\end{tabular}
+
+\renewcommand{\arraystretch}{1.35}
+
+\begin{tabularx}{\textwidth}{>{\bfseries}p{4.4cm} X}
+
+Tema: &
+Diseño desde cero de un sistema web para reservar tutorías \\
+
+Unidad de Organización Curricular: &
+Profesional \\
+
+Nivel y Paralelo: &
+Quinto -- B \\
+
+Responsable del documento: &
+Bejarano Masabanda Carlos Fabian \\
+
+Integrantes del equipo: &
+\begin{tabular}[t]{@{}l@{}}
+Bejarano Masabanda Carlos Fabian\\
+Guatemal Avilez Bryan Stalin\\
+Molina Nuñez Karen Valeria\\
+Solis Salinas Mario Tomas
+\end{tabular} \\
+
+Asignatura: &
+Interacción Humano-Computador \\
+
+Docente: &
+Ing. Jose Ruben Caiza Caizabuano, Mg. \\
+
+Proyecto: &
+Tutoría Fácil UTA \\
+
+\end{tabularx}
+
 \end{flushleft}
 
-
+% =========================================================
 \section{Informe de la Tarea}
+
 \subsection{Objetivos}
+
 \subsubsection{General}
-(Especificado en la guía tarea proporcionada por el docente).
+
+Analizar la interacción humano--computador del proceso de reserva
+de tutorías académicas, identificando las personas involucradas,
+el sistema, sus entradas y salidas, las disciplinas relacionadas
+y los estilos de interacción necesarios para el desarrollo de
+Tutoría Fácil UTA.
+
 \subsubsection{Específicos}
+
 \begin{itemize}
-    \item (Se recomienda máximo 3).
-    \item 
-    \item 
+
+    \item Identificar a los usuarios directos e indirectos
+    involucrados en el proceso de tutorías.
+
+    \item Determinar las entradas, salidas y responsabilidades
+    principales del sistema Tutoría Fácil UTA.
+
+    \item Relacionar informática, psicología cognitiva,
+    ergonomía y diseño con decisiones concretas de interacción.
+
 \end{itemize}
 
-
+% =========================================================
 \subsection{Instrucciones}
 
-Detalladas en la asignación de la tarea proporcionada por el docente.
+Se debe realizar una matriz de análisis de Interacción Humano
+Computador utilizando las evidencias E1 a E10 proporcionadas
+en el caso.
 
+El análisis debe identificar:
 
+\begin{itemize}
+    \item personas;
+    \item sistema;
+    \item entradas;
+    \item salidas;
+    \item disciplinas relacionadas;
+    \item estilos de interacción.
+\end{itemize}
+
+Cada conclusión importante debe mantener relación con las
+evidencias proporcionadas en el examen.
+
+% =========================================================
 \subsection{Listado de equipos, materiales y recursos}
-\textbf{Listado de equipos y materiales generales empleados en la tarea:}
+
+\textbf{Listado de equipos y materiales generales empleados:}
+
 \begin{itemize}
-    \item  
+    \item Computador portátil.
+    \item Navegador web.
+    \item Documento oficial del examen práctico integrador.
+    \item Repositorio GitHub compartido.
+    \item Acceso a FigJam.
 \end{itemize}
 
-\textbf{TAC (Tecnologías para el Aprendizaje y Conocimiento) empleados en la tarea:}
+\textbf{TAC empleadas en la tarea:}
+
 \begin{itemize}
-    \item[$\square$] Plataformas educativas
-    \item[$\square$] Simuladores y laboratorios virtuales
-    \item[$\square$] Aplicaciones educativas
-    \item[$\square$] Recursos audiovisuales
-    \item[$\square$] Gamificación
-    \item[$\square$] Inteligencia Artificial
-    \item Otros (Especifique): \underline{\hspace{5cm}}
+    \emptyitem Plataformas educativas.
+    \emptyitem Simuladores y laboratorios virtuales.
+    \checkitem Aplicaciones educativas: FigJam.
+    \emptyitem Recursos audiovisuales.
+    \emptyitem Gamificación.
+    \emptyitem Inteligencia Artificial.
+    \checkitem Otros: GitHub como herramienta colaborativa.
 \end{itemize}
 
-
+% =========================================================
 \subsection{Desarrollo de la Tarea (Actividades a Desarrollar)}
 
-Detalladas en las instrucciones proporcionadas por el docente.
+\subsubsection{Problema identificado}
 
-\subsection{Resultados obtenidos}
-De acuerdo con el tipo de trabajo, se plasmarán los resultados alcanzados en la guía tarea una vez ejecutadas las actividades. Se pueden emplear figuras y tablas las cuales deben ser numeradas.
+Actualmente la coordinación de tutorías se realiza mediante
+mensajes de WhatsApp, hojas de cálculo y agendas personales.
 
+El estudiante debe contactar al docente, esperar una respuesta,
+proponer diferentes horarios y solicitar una confirmación.
 
-%Especifique las TAC's utilizadas en la Tarea. 
-\subsection{Habilidades blandas empleadas en la tarea}
+Cuando necesita modificar una tutoría, normalmente debe iniciar
+una nueva conversación.
+
+Este proceso puede ocasionar:
+
 \begin{itemize}
-    \item[$\square$] Liderazgo
-    \item[$\square$] Trabajo en equipo
-    \item[$\square$] Comunicación asertiva
-    \item[$\square$] La empatía
-    \item[$\square$] Pensamiento crítico
-    \item[$\square$] Flexibilidad
-    \item[$\square$] La resolución de conflictos
-    \item[$\square$] Adaptabilidad
-    \item[$\square$] Responsabilidad
+    \item demoras;
+    \item confirmaciones ambiguas;
+    \item selección de horarios ocupados;
+    \item información desactualizada;
+    \item necesidad de intercambiar múltiples mensajes.
 \end{itemize}
 
+Como respuesta a este problema se propone
+\textbf{Tutoría Fácil UTA}, una aplicación web móvil que permita
+consultar disponibilidad, reservar, confirmar y reprogramar
+tutorías desde una única interfaz.
 
+% ---------------------------------------------------------
+\subsubsection{Personas que intervienen}
+
+\textbf{Estudiante}
+
+El estudiante constituye el usuario principal del sistema.
+
+Su objetivo es consultar la disponibilidad de un docente,
+seleccionar una fecha y horario, reservar una tutoría,
+recibir una confirmación clara y posteriormente reprogramarla
+cuando sea necesario.
+
+La evidencia E1 describe a Laura, estudiante de 20 años,
+consultando horarios desde su teléfono mientras viaja en bus.
+
+\vspace{0.2cm}
+
+\textbf{Docente}
+
+El docente constituye un usuario secundario.
+
+Su participación se relaciona principalmente con la disponibilidad
+de horarios y las solicitudes de tutoría.
+
+La evidencia E6 establece que los docentes actualmente reciben
+solicitudes fuera de horario y actualizan manualmente su
+disponibilidad.
+
+\vspace{0.2cm}
+
+\textbf{Secretaría}
+
+La secretaría participa indirectamente en el proceso.
+
+La evidencia E7 indica que transcribe cambios a una hoja de
+cálculo y puede conservar información desactualizada.
+
+% ---------------------------------------------------------
+\subsubsection{Sistema}
+
+Tutoría Fácil UTA deberá procesar, almacenar y comunicar
+información relacionada con:
+
+\begin{itemize}
+    \item docentes;
+    \item fechas;
+    \item disponibilidad;
+    \item horarios;
+    \item reservas;
+    \item estados;
+    \item confirmaciones;
+    \item reprogramaciones.
+\end{itemize}
+
+El sistema debe impedir que un estudiante seleccione un horario
+que ya se encuentre ocupado y proporcionar una respuesta clara
+después de cada acción relevante.
+
+% ---------------------------------------------------------
+\subsubsection{Entradas y salidas}
+
+\begin{table}[H]
+\centering
+\caption{Entradas y salidas principales del sistema.}
+
+\begin{tabularx}{\textwidth}{
+>{\bfseries\raggedright\arraybackslash}p{2.8cm}
+>{\raggedright\arraybackslash}X
+>{\raggedright\arraybackslash}X
+}
+
+\toprule
+\textbf{Proceso} & \textbf{Entradas} & \textbf{Salidas} \\
+\midrule
+
+Reserva &
+Docente, fecha, horario, modalidad y confirmación. &
+Disponibilidad, horario seleccionado, resumen y confirmación. \\
+
+Reprogramación &
+Cita existente y nuevo horario. &
+Nuevo resumen, estado actualizado y confirmación. \\
+
+Errores o carga &
+Reintento o corrección del usuario. &
+Mensajes de carga, indisponibilidad y recuperación. \\
+
+\bottomrule
+
+\end{tabularx}
+\end{table}
+
+% ---------------------------------------------------------
+\subsubsection{Disciplinas relacionadas con IHC}
+
+\textbf{Informática}
+
+Permite gestionar de forma estructurada la disponibilidad,
+las reservas y los estados de las tutorías, reduciendo
+inconsistencias derivadas del manejo manual.
+
+Se relaciona con E3 y E7.
+
+\vspace{0.2cm}
+
+\textbf{Psicología cognitiva}
+
+Permite analizar cómo el usuario percibe, recuerda y procesa
+la información.
+
+En Tutoría Fácil UTA se busca disminuir la cantidad de información
+que el estudiante debe memorizar mediante resúmenes y estados visibles.
+
+Se relaciona con E4 y E5.
+
+\vspace{0.2cm}
+
+\textbf{Ergonomía}
+
+Permite adaptar el sistema a las condiciones reales de uso.
+
+Las evidencias indican que la aplicación puede utilizarse desde
+un teléfono mientras el usuario se encuentra en movimiento y
+que ciertos usuarios utilizan teclado, ampliación al 200\% y
+lector de pantalla.
+
+Se relaciona con E1 y E2.
+
+\vspace{0.2cm}
+
+\textbf{Diseño}
+
+El diseño permite organizar los controles, estados, etiquetas
+y acciones mediante una jerarquía consistente y comprensible.
+
+Se relaciona con E2 y E9.
+
+% ---------------------------------------------------------
+\subsubsection{Estilos de interacción}
+
+\textbf{Menús}
+
+Se emplearán menús y opciones para acceder a acciones como:
+
+\begin{itemize}
+    \item reservar tutoría;
+    \item ver horarios;
+    \item consultar mis tutorías;
+    \item reprogramar.
+\end{itemize}
+
+\textbf{Formularios}
+
+Se utilizarán controles para seleccionar información como:
+
+\begin{itemize}
+    \item docente;
+    \item fecha;
+    \item modalidad;
+    \item horario.
+\end{itemize}
+
+\textbf{Manipulación directa}
+
+El usuario podrá seleccionar directamente un horario visible.
+
+Por ejemplo:
+
+\begin{center}
+\textbf{10:00 -- Disponible}
+\end{center}
+
+Después de seleccionarlo:
+
+\begin{center}
+\textbf{10:00 -- Seleccionado}
+\end{center}
+
+% ---------------------------------------------------------
+\subsubsection{Matriz Humano--Sistema}
+
+\begin{longtable}{
+>{\raggedright\arraybackslash\bfseries}p{2.4cm}
+>{\raggedright\arraybackslash}p{8.6cm}
+>{\raggedright\arraybackslash}p{2.2cm}
+}
+
+\caption{Matriz Humano--Sistema.}\\
+
+\toprule
+\textbf{Elemento} &
+\textbf{Aplicación en Tutoría Fácil UTA} &
+\textbf{Evidencia} \\
+\midrule
+\endfirsthead
+
+\toprule
+\textbf{Elemento} &
+\textbf{Aplicación en Tutoría Fácil UTA} &
+\textbf{Evidencia} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{3}{r}{\footnotesize\itshape Continúa en la siguiente página} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+Personas &
+Estudiante como usuario principal; docente y secretaría
+como participantes secundarios. &
+E1, E6, E7 \\
+
+Sistema &
+Gestiona disponibilidad, reserva, estado y cambio de horario. &
+E3, E5, E6 \\
+
+Entradas &
+Selección de docente, fecha, horario, modalidad y confirmación. &
+E1, E3, E10 \\
+
+Salidas &
+Horarios, selección, confirmación, estados de carga y errores. &
+E3, E5, E8 \\
+
+Informática &
+Automatiza y centraliza disponibilidad y reservas. &
+E3, E7 \\
+
+Psicología cognitiva &
+Reduce memoria y carga cognitiva mediante reconocimiento y resúmenes. &
+E4, E5 \\
+
+Ergonomía &
+Considera móvil, teclado, ampliación y tecnologías de apoyo. &
+E1, E2 \\
+
+Diseño &
+Organiza controles y estados de manera clara y consistente. &
+E2, E9 \\
+
+Interacción &
+Menús, formularios y manipulación directa de horarios. &
+E9, E10 \\
+
+\end{longtable}
+
+% =========================================================
+\subsection{Resultados obtenidos}
+
+Como resultado se obtuvo una matriz de análisis que relaciona
+el problema actual con usuarios, entradas, salidas, disciplinas
+y estilos de interacción.
+
+El análisis permite fundamentar las siguientes etapas de diseño
+sin copiar una interfaz previa y mantiene trazabilidad con las
+evidencias E1 a E10.
+
+\capturaespacio{Evidencia del tablero FigJam: Matriz Humano--Sistema}
+
+% =========================================================
+\subsection{Habilidades blandas empleadas en la tarea}
+
+\begin{itemize}
+    \emptyitem Liderazgo.
+    \checkitem Trabajo en equipo.
+    \checkitem Comunicación asertiva.
+    \emptyitem Empatía.
+    \checkitem Pensamiento crítico.
+    \emptyitem Flexibilidad.
+    \emptyitem Resolución de conflictos.
+    \checkitem Adaptabilidad.
+    \checkitem Responsabilidad.
+\end{itemize}
+
+% =========================================================
 \subsection{Conclusiones}
-Constituye la respuesta que propone el o los estudiantes para el problema que originó el trabajo desarrollado, de acuerdo con los datos recogidos y la teoría aplicada. 
 
+\begin{itemize}
+
+    \item El estudiante debe encontrarse en el centro del flujo
+    de interacción, debido a que actualmente depende de varias
+    conversaciones manuales para completar una tutoría.
+
+    \item Tutoría Fácil UTA debe mantener visibles los estados
+    de disponibilidad, selección y confirmación para reducir
+    ambigüedad y prevenir errores.
+
+    \item La accesibilidad, ergonomía y consistencia deben
+    incorporarse desde las primeras etapas del diseño y no
+    únicamente como correcciones posteriores.
+
+\end{itemize}
+
+% =========================================================
 \subsection{Recomendaciones}
-Redactar las sugerencias o acciones concretas que se derivan de la tarea desarrollada. \cite{greenwade93}
 
+\begin{itemize}
 
+    \item Mantener cada decisión importante relacionada con
+    al menos una evidencia E1 a E10.
+
+    \item Evitar utilizar exclusivamente colores o iconos
+    para comunicar información.
+
+    \item Conservar la matriz Humano--Sistema como referencia
+    durante la construcción del prototipo.
+
+\end{itemize}
+
+% =========================================================
+% Se reemplazó thebibliography: generaba un segundo título
+% "Referencias" duplicado debajo de la subsección.
 \subsection{Referencias}
-Insertar las referencias bibliográficas empleadas aplicando la norma IEEE.
 
-\vspace{-3em} %reduce el espacio causado por refname vacío
-\renewcommand{\refname}{}
-\bibliographystyle{ieeetr}
-\bibliography{citas}
+\begin{list}{}{%
+    \setlength{\leftmargin}{2em}%
+    \setlength{\itemindent}{-2em}%
+    \setlength{\labelwidth}{0pt}%
+}
+\item[] Universidad Técnica de Ambato, FISEI, ``Examen práctico
+integrador del primer parcial: Diseño desde cero de un sistema web
+para reservar tutorías'', Interacción Humano Computador, 2026.
+\end{list}
 
-\subsection{Anexos}
-\vfill
+
 \end{document}
