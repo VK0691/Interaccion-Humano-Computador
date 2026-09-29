@@ -1,7 +1,6 @@
 \documentclass{article}
 
 % Language setting
-% Replace `english' with e.g. `spanish' to change the document language
 \usepackage[spanish]{babel}
 
 \usepackage[letterpaper,top=2cm,bottom=5cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
@@ -10,31 +9,31 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
-\usepackage{amssymb} 
+\usepackage{amssymb}
 \usepackage{fancyhdr}
-\usepackage{lipsum} % Para generar texto de ejemplo
 \usepackage{multicol}
-\pagestyle{fancy} 
+\pagestyle{fancy}
 \usepackage{url}
-
-  
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{pifont}
 
 \fancyhf{} % Limpiar encabezado y pie de página por defecto
-\setlength{\headheight}{70pt} % Ajuste del tamaño del encabezado (puedes aumentar este valor si es necesario)
+\setlength{\headheight}{70pt}
 
 % Definición del encabezado
-
 \fancyhead[C]{%
     \begin{minipage}[c]{2.0cm}
         \centering
         \includegraphics[width=2.0cm]{img/uta.png}
     \end{minipage}%
     \hfill
-    \begin{minipage}[c]{8cm} 
+    \begin{minipage}[c]{8cm}
         \centering
         \small {\textbf{UNIVERSIDAD TÉCNICA DE AMBATO}} \\[0.1cm]
         \scriptsize \textit{FACULTAD DE INGENIERÍA EN SISTEMAS ELECTRÓNICA E INDUSTRIAL} \\[0.1cm]
-        \scriptsize \textbf{CARRERA SOFTWARE - ITERACCION HUMANO-COMPUTADOR} \\[0.1cm]
+        \scriptsize \textbf{CARRERA SOFTWARE - INTERACCIÓN HUMANO-COMPUTADOR} \\[0.1cm]
         \scriptsize \textbf{CICLO ACADÉMICO: AGOSTO  - DICIEMBRE 2026}
     \end{minipage}%
     \hfill
@@ -46,99 +45,314 @@
 
 \begin{document}
 \begin{center}
-    {\large \textbf{INFORME DE TAREA}} \\    
+    {\large \textbf{INFORME DE TAREA}} \\
 \end{center}
 
 \section{Portada}
 \begin{flushleft}
 \begin{tabular}{ l l }
-    \textbf{Tema:} & Tema de la tarea proporcionada por el docente \\
-    \\textbf{Unidad de Organización Curricular:} & Profesional. \\
+    \textbf{Tema:} & Decisiones de diseño, Gestalt y guía de estilo -- Tutoría Fácil UTA \\
+    \textbf{Unidad de Organización Curricular:} & Profesional. \\
     \textbf{Nivel y Paralelo:} & Quinto - B \\
     \textbf{Alumnos participante(s):} & Bejarano Masabanda Carlos Fabian\\
     & Guatemal Avilez Bryan Stalin \\
     & Molina Nuñez Karen Valeria\\
     & Solis Salinas Mario Tomas\\
-    & \dotfill \\
-    \textbf{Asignatura:} & Interacion Humano / Computador \\
+    \textbf{Responsable del documento:} & Guatemal Avilez Bryan Stalin \\
+    \textbf{Asignatura:} & Interacción Humano / Computador \\
     \textbf{Docente:} & Ing. Jose Ruben Caiza Caizabuano, Mg. \\
 \end{tabular}
 \end{flushleft}
 
-
 \section{Informe de la Tarea}
 \subsection{Objetivos}
 \subsubsection{General}
-(Especificado en la guía tarea proporcionada por el docente).
+Traducir las necesidades identificadas en el caso en decisiones de diseño
+visibles y consistentes para Tutoría Fácil UTA. Para ello se aplican
+metáforas, affordance, mapeo, manipulación directa, retroalimentación,
+reducción de la carga cognitiva, leyes Gestalt y una guía mínima de estilo.
+
 \subsubsection{Específicos}
 \begin{itemize}
-    \item (Se recomienda máximo 3).
-    \item 
-    \item 
+    \item Seleccionar metáforas y comportamientos de interacción coherentes
+    con los modelos mentales de los estudiantes (E9).
+    \item Aplicar y justificar al menos tres leyes Gestalt visibles en el prototipo.
+    \item Definir tipografía, colores, componentes y reglas de consistencia
+    para las cuatro pantallas.
 \end{itemize}
 
-
 \subsection{Instrucciones}
-
-Detalladas en la asignación de la tarea proporcionada por el docente.
-
+Las decisiones de diseño deben definirse antes de construir el prototipo.
+Cada decisión debe resolver una necesidad del caso, vincularse con una
+evidencia de E1 a E10 y aparecer después en el prototipo.
 
 \subsection{Listado de equipos, materiales y recursos}
 \textbf{Listado de equipos y materiales generales empleados en la tarea:}
 \begin{itemize}
-    \item  
+    \item Computador portátil y navegador web.
+    \item Documento del examen y evidencias E1 a E10.
+    \item FigJam, Figma Design y GitHub.
 \end{itemize}
 
 \textbf{TAC (Tecnologías para el Aprendizaje y Conocimiento) empleados en la tarea:}
 \begin{itemize}
     \item[$\square$] Plataformas educativas
     \item[$\square$] Simuladores y laboratorios virtuales
-    \item[$\square$] Aplicaciones educativas
+    \item[$\boxtimes$] Aplicaciones educativas: FigJam y Figma Design
     \item[$\square$] Recursos audiovisuales
     \item[$\square$] Gamificación
-    \item[$\square$] Inteligencia Artificial
-    \item Otros (Especifique): \underline{\hspace{5cm}}
+    \item[$\boxtimes$] Inteligencia Artificial: apoyo en la redacción y el formato
+    \item Otros (Especifique): \underline{GitHub}
 \end{itemize}
-
 
 \subsection{Desarrollo de la Tarea (Actividades a Desarrollar)}
 
-Detalladas en las instrucciones proporcionadas por el docente.
+\subsubsection{Metáforas}
+
+Se emplean dos metáforas que los estudiantes ya reconocen (E9).
+
+\textbf{Calendario.} Representa las fechas y la disponibilidad del docente.
+Aprovecha un modelo mental conocido, porque las personas asocian
+naturalmente un calendario con fechas y planificación.
+
+\textbf{Tarjeta de tutoría.} Agrupa en un solo objeto el docente, la
+asignatura, la fecha, la hora, la modalidad y el estado. Funciona como una
+cita en una agenda física: el estudiante la consulta en \textit{Mis
+tutorías} sin buscarla entre mensajes (E5).
+
+\subsubsection{Affordance}
+
+Los horarios disponibles tienen una apariencia claramente seleccionable:
+borde de color, área táctil de al menos $44 \times 44$\,px y texto
+explícito.
+
+\begin{center}
+\textbf{09:00 -- Disponible}
+\end{center}
+
+Los horarios ocupados aparecen en gris, con texto, y no se pueden accionar.
+De esta forma se evitan los intentos de reservar horarios ya ocupados
+observados en E3.
+
+\begin{center}
+\textbf{11:00 -- Ocupado}
+\end{center}
+
+\subsubsection{Mapeo}
+
+La relación entre acción y resultado es directa. Cuando el estudiante toca
+
+\begin{center}
+\textbf{12:00 -- Disponible},
+\end{center}
+
+el mismo elemento cambia a
+
+\begin{center}
+\textbf{12:00 -- Seleccionado \ding{51}}
+\end{center}
+
+y el botón \textit{Continuar} se habilita justo debajo. El resultado se
+muestra en el mismo elemento sobre el que se actuó, y la acción siguiente
+aparece en la dirección natural de lectura.
+
+\subsubsection{Manipulación directa}
+
+El estudiante selecciona y modifica el horario actuando directamente sobre
+el elemento visible, sin escribir ninguna hora. Para corregir, basta con
+tocar otro horario. En la reprogramación, la acción \textit{Reprogramar}
+abre el mismo calendario con la cita actual marcada, de modo que se usa el
+mismo modelo de interacción. Esta decisión responde a E10.
+
+\subsubsection{Retroalimentación}
+
+La aplicación informa en todo momento qué está ocurriendo, siempre con texto:
+
+\begin{itemize}
+    \item \textbf{Carga:} \textit{Consultando horarios\ldots}, con el botón
+    deshabilitado mientras se espera (E8).
+    \item \textbf{Selección:} \textit{Horario seleccionado: jueves 15 de octubre, 12:00}.
+    \item \textbf{Confirmación:} \textit{Tutoría CONFIRMADA}, junto con la
+    tarjeta de la cita (E3, E5).
+    \item \textbf{Error:} \textit{No pudimos cargar los horarios}, con el
+    botón \textit{Intentar nuevamente} (E8).
+\end{itemize}
+
+\subsubsection{Reducción de la carga cognitiva}
+
+El proceso se divide en etapas con un indicador de progreso
+(\textit{Paso 1 de 2}): búsqueda, selección, revisión y confirmación.
+
+\begin{itemize}
+    \item Solo se muestran los horarios del día elegido y como máximo cinco
+    días a la vez. Así se limitan las opciones simultáneas, en línea con la
+    ley de Hick-Hyman y la capacidad de la memoria de trabajo (Miller).
+    \item Se aplica el principio de reconocimiento sobre recuerdo: los datos
+    de la cita se repiten antes y después de confirmar, así que el estudiante
+    no tiene que memorizarlos.
+\end{itemize}
+
+Esta decisión se relaciona con E4 y E5.
+
+\subsubsection{Riesgo cultural}
+
+No se depende exclusivamente de colores, iconos o símbolos aislados. Por
+ejemplo, en lugar de mostrar solo un símbolo de verificación se presenta:
+
+\begin{center}
+\textbf{\ding{51} Tutoría CONFIRMADA}
+\end{center}
+
+Cada horario incluye además su etiqueta textual: \textit{Disponible},
+\textit{Ocupado} o \textit{Seleccionado}. Las fechas se escriben completas
+(\textit{jueves 15 de octubre}) para evitar formatos ambiguos. Esto responde
+a E2 y E9.
+
+\subsubsection{Matriz de decisiones}
+
+\begin{table}[H]
+\centering
+\caption{Decisiones de diseño aplicadas.}
+\small
+\begin{tabularx}{\textwidth}{p{2.5cm} X p{1.4cm} p{1.6cm}}
+\toprule
+\textbf{Concepto} & \textbf{Decisión aplicada} & \textbf{Evid.} & \textbf{Pantalla} \\
+\midrule
+Metáfora & Calendario para fechas y tarjeta para representar una tutoría. & E9 & P2, P4 \\
+Affordance & Horarios disponibles seleccionables; ocupados en gris, con texto y deshabilitados. & E3, E9 & P2 \\
+Mapeo & El horario seleccionado cambia de estado en el mismo lugar y \textit{Continuar} se habilita debajo. & E3, E9 & P2 \\
+Manipulación directa & Selección y cambio actuando sobre el horario visible, también al reprogramar. & E10 & P2, P4 \\
+Retroalimentación & Estados de carga, selección, confirmación y error con texto. & E3, E5, E8 & P2--P4 \\
+Carga cognitiva & Pasos progresivos, pocas opciones a la vez y resumen visible. & E4, E5 & P2, P3 \\
+Riesgo cultural & Ningún estado depende solo de iconos, símbolos o colores. & E2, E9 & Todas \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsubsection{Aplicación de leyes Gestalt}
+
+\paragraph{Proximidad.} Docente, fecha, hora y modalidad se agrupan dentro
+de la misma tarjeta, con 8\,px de separación interna y 24\,px entre bloques
+distintos. La cercanía permite entender que todos esos datos pertenecen a la
+misma tutoría (E5).
+
+\paragraph{Semejanza.} Los horarios que comparten estado tienen la misma
+forma y estilo; los disponibles se distinguen de los ocupados por el estilo
+y también por el texto (E3, E9). Además se mantiene la consistencia entre
+botones principales, botones secundarios, tarjetas y mensajes de estado.
+
+\paragraph{Figura--fondo.} Las tarjetas, los resúmenes y las confirmaciones
+se destacan sobre el fondo gris mediante contraste, espacio y contenedores
+blancos. Mientras el sistema carga, una capa oscurece el fondo. Así la
+atención se dirige a los datos que el estudiante debe verificar.
+
+\paragraph{Leyes complementarias.} Por \textit{continuidad}, el flujo es
+vertical (docente $\rightarrow$ fecha $\rightarrow$ horario $\rightarrow$
+Continuar). Por \textit{cierre}, el carrusel de días muestra el último día
+cortado, lo que invita a desplazarse.
+
+\subsubsection{Guía de estilo}
+
+\begin{table}[H]
+\centering
+\caption{Guía mínima de estilo (frame móvil de $390 \times 844$\,px).}
+\small
+\begin{tabularx}{\textwidth}{p{3.2cm} X}
+\toprule
+\textbf{Elemento} & \textbf{Definición} \\
+\midrule
+Título principal & 24\,px, semibold. \\
+Subtítulo & 18\,px, semibold. \\
+Texto de cuerpo & 16\,px, regular. \\
+Texto auxiliar & 14\,px, regular (nunca menor). \\
+Acción principal & \texttt{\#0057B8} con texto blanco. \\
+Fondo & \texttt{\#F7F8FA}; tarjetas en \texttt{\#FFFFFF}. \\
+Texto principal & \texttt{\#1F2937}. \\
+Éxito & \texttt{\#198754}, siempre acompañado de icono y texto (\textit{CONFIRMADA}). \\
+Error & \texttt{\#DC3545}, siempre acompañado de un mensaje que explica la corrección. \\
+Foco & Contorno de 3\,px, visible en todos los controles. \\
+Componentes & Botón principal (48\,px de alto y ancho completo), botón secundario, campo con etiqueta, horario en tres variantes (disponible, ocupado y seleccionado), tarjeta de tutoría y mensaje de estado. \\
+Etiquetas fijas & \textit{Ver horarios}, \textit{Mis tutorías}, \textit{Continuar}, \textit{Confirmar tutoría}, \textit{Cambiar horario}, \textit{Reprogramar} y \textit{Volver al inicio}. \\
+Consistencia & La acción principal va siempre abajo; \textit{Volver} siempre arriba a la izquierda; se mantienen las mismas jerarquías y respuestas del sistema en las cuatro pantallas. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsubsection{Estándares de iure que fundamentan la guía}
+
+La norma ISO 9241-11 orienta la calidad de uso en un contexto especificado
+mediante la efectividad, la eficiencia y la satisfacción. La norma ISO
+9241-210 orienta el proceso iterativo de diseño centrado en las personas.
+Esta guía de estilo concreta ambas orientaciones en reglas consistentes y
+verificables para el proyecto.
 
 \subsection{Resultados obtenidos}
-De acuerdo con el tipo de trabajo, se plasmarán los resultados alcanzados en la guía tarea una vez ejecutadas las actividades. Se pueden emplear figuras y tablas las cuales deben ser numeradas.
+\begin{itemize}
+    \item Se obtuvo una matriz de decisiones (Tabla 1) que relaciona los
+    principios del parcial con necesidades concretas del caso, cada una con su
+    evidencia y la pantalla donde se verifica.
+    \item Se justificaron tres leyes Gestalt principales (proximidad,
+    semejanza y figura-fondo) y dos complementarias (continuidad y cierre).
+    \item Se definió una guía de estilo mínima (Tabla 2) que se aplica
+    directamente en Figma y mantiene la consistencia de las cuatro pantallas.
+\end{itemize}
 
-
-%Especifique las TAC's utilizadas en la Tarea. 
 \subsection{Habilidades blandas empleadas en la tarea}
 \begin{itemize}
     \item[$\square$] Liderazgo
-    \item[$\square$] Trabajo en equipo
-    \item[$\square$] Comunicación asertiva
+    \item[$\boxtimes$] Trabajo en equipo
+    \item[$\boxtimes$] Comunicación asertiva
     \item[$\square$] La empatía
-    \item[$\square$] Pensamiento crítico
-    \item[$\square$] Flexibilidad
+    \item[$\boxtimes$] Pensamiento crítico
+    \item[$\boxtimes$] Flexibilidad
     \item[$\square$] La resolución de conflictos
-    \item[$\square$] Adaptabilidad
-    \item[$\square$] Responsabilidad
+    \item[$\boxtimes$] Adaptabilidad
+    \item[$\boxtimes$] Responsabilidad
 \end{itemize}
 
-
 \subsection{Conclusiones}
-Constituye la respuesta que propone el o los estudiantes para el problema que originó el trabajo desarrollado, de acuerdo con los datos recogidos y la teoría aplicada. 
+\begin{itemize}
+    \item Las metáforas de calendario y tarjeta aprovechan modelos mentales
+    conocidos por los estudiantes y reducen la necesidad de explicar la interfaz.
+    \item La retroalimentación textual y el mapeo directo disminuyen la
+    ambigüedad al seleccionar y confirmar horarios, que era el principal
+    problema del proceso actual (E3).
+    \item Las leyes Gestalt organizan visualmente los elementos y reducen la
+    carga perceptiva en una pantalla pequeña.
+    \item La guía de estilo convierte criterios generales en reglas visuales
+    concretas y reutilizables.
+\end{itemize}
 
 \subsection{Recomendaciones}
-Redactar las sugerencias o acciones concretas que se derivan de la tarea desarrollada. \cite{greenwade93}
-
+\begin{itemize}
+    \item Aplicar los mismos componentes en las cuatro pantallas.
+    \item No cambiar la etiqueta de una misma acción a lo largo del flujo.
+    \item Verificar que todo estado con color incluya también texto.
+    \item Comparar el prototipo final con la matriz de decisiones antes de la
+    prueba cruzada.
+\end{itemize}
 
 \subsection{Referencias}
-Insertar las referencias bibliográficas empleadas aplicando la norma IEEE.
+\begin{thebibliography}{9}
 
-\vspace{-3em} %reduce el espacio causado por refname vacío
-\renewcommand{\refname}{}
-\bibliographystyle{ieeetr}
-\bibliography{citas}
+\bibitem{guia}
+Universidad Técnica de Ambato, FISEI, ``Examen práctico integrador del primer
+parcial: Diseño desde cero de un sistema web para reservar tutorías,''
+Interacción Humano Computador, Ambato, Ecuador, 2026.
+
+\bibitem{iso11}
+International Organization for Standardization, \textit{ISO 9241-11:2018
+Ergonomics of human-system interaction -- Part 11: Usability: Definitions and
+concepts}. Ginebra, Suiza: ISO, 2018.
+
+\bibitem{iso210}
+International Organization for Standardization, \textit{ISO 9241-210:2019
+Ergonomics of human-system interaction -- Part 210: Human-centred design for
+interactive systems}. Ginebra, Suiza: ISO, 2019.
+
+\end{thebibliography}
 
 \subsection{Anexos}
-\vfill
+Captura de la guía de estilo y de los componentes en Figma (insertar antes de la entrega).
+
 \end{document}
