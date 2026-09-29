@@ -11,8 +11,7 @@
 
 % =========================================================
 % CONFIGURACIÓN DE PÁGINA
-% (includehead: el encabezado queda DENTRO del margen superior,
-%  así no se sale de la hoja)
+% (includehead: el encabezado queda DENTRO del margen superior)
 % =========================================================
 \usepackage[
     letterpaper,
@@ -39,19 +38,19 @@
 \usepackage{booktabs}
 \usepackage{enumitem}
 \usepackage{longtable}
+\usepackage{pifont}   % necesario para \ding{51}
 \usepackage{titlesec}
 \usepackage{lastpage}
 \usepackage{microtype}
 \usepackage{float}
 
-% hyperref se carga al final para evitar conflictos
-% (también se quitó \usepackage{url}, hyperref ya lo incluye)
+% hyperref al final; se quitó \usepackage{url} (hyperref ya lo carga)
 \usepackage[
     colorlinks=true,
     linkcolor=blue!60!black,
     urlcolor=blue!60!black,
     citecolor=blue!60!black,
-    pdftitle={Fundamentos de IHC y Matriz Humano--Sistema},
+    pdftitle={Prototipo Interactivo, Prueba Cruzada e Iteración},
     pdfauthor={Equipo Tutoría Fácil UTA}
 ]{hyperref}
 
@@ -150,15 +149,24 @@
 \newcommand{\checkitem}{\item[$\boxtimes$]}
 \newcommand{\emptyitem}{\item[$\square$]}
 
-% (renombrado: \placeholder puede chocar con otros paquetes/clases)
+% (renombrado: \placeholder puede chocar con otros paquetes)
 \newcommand{\capturaespacio}[1]{%
 \begin{center}
 \fcolorbox{UTAblue}{UTAlight}{%
-    \parbox[c][4.2cm][c]{0.88\textwidth}{%
+    \parbox[c][4.4cm][c]{0.88\textwidth}{%
         \centering
         \textbf{#1}\\[0.3cm]
         \small Inserte aquí la captura correspondiente antes de la entrega.
     }%
+}
+\end{center}
+}
+
+% Caja para los bocetos de pantallas
+\newcommand{\bocetocaja}[1]{%
+\begin{center}
+\fcolorbox{UTAblue}{UTAlight}{%
+\parbox{0.72\textwidth}{#1}%
 }
 \end{center}
 }
@@ -170,7 +178,7 @@
 
 \begin{center}
     {\Large\bfseries\color{UTAblue} INFORME DE TAREA}\\[0.35cm]
-    {\large\bfseries Fundamentos de IHC y Matriz Humano--Sistema}\\[0.2cm]
+    {\large\bfseries Prototipo Interactivo, Prueba Cruzada e Iteración}\\[0.2cm]
     \rule{0.82\textwidth}{0.6pt}
 \end{center}
 
@@ -193,7 +201,7 @@ Nivel y Paralelo: &
 Quinto -- B \\
 
 Responsable del documento: &
-Bejarano Masabanda Carlos Fabian \\
+Solis Salinas Mario Tomas \\
 
 Integrantes del equipo: &
 \begin{tabular}[t]{@{}l@{}}
@@ -223,47 +231,49 @@ Tutoría Fácil UTA \\
 
 \subsubsection{General}
 
-Analizar la interacción humano--computador del proceso de reserva
-de tutorías académicas, identificando las personas involucradas,
-el sistema, sus entradas y salidas, las disciplinas relacionadas
-y los estilos de interacción necesarios para el desarrollo de
-Tutoría Fácil UTA.
+Construir y evaluar un prototipo móvil interactivo de
+Tutoría Fácil UTA que permita completar la reserva de una
+tutoría y comenzar una reprogramación sin necesidad de
+explicación verbal previa.
 
 \subsubsection{Específicos}
 
 \begin{itemize}
 
-    \item Identificar a los usuarios directos e indirectos
-    involucrados en el proceso de tutorías.
+    \item Diseñar cuatro pantallas conectadas aplicando las
+    decisiones obtenidas en las actividades anteriores.
 
-    \item Determinar las entradas, salidas y responsabilidades
-    principales del sistema Tutoría Fácil UTA.
+    \item Configurar un flujo principal y una ruta de
+    reprogramación funcional.
 
-    \item Relacionar informática, psicología cognitiva,
-    ergonomía y diseño con decisiones concretas de interacción.
+    \item Realizar una prueba cruzada, registrar un hallazgo
+    observable y aplicar una mejora concreta.
 
 \end{itemize}
 
 % =========================================================
 \subsection{Instrucciones}
 
-Se debe realizar una matriz de análisis de Interacción Humano
-Computador utilizando las evidencias E1 a E10 proporcionadas
-en el caso.
+El prototipo debe construirse utilizando Figma Design o
+Penpot con fidelidad baja o media.
 
-El análisis debe identificar:
+Debe permitir realizar el siguiente recorrido:
 
-\begin{itemize}
-    \item personas;
-    \item sistema;
-    \item entradas;
-    \item salidas;
-    \item disciplinas relacionadas;
-    \item estilos de interacción.
-\end{itemize}
+\begin{center}
+Inicio $\rightarrow$ Horarios $\rightarrow$ Resumen
+$\rightarrow$ Confirmación
+\end{center}
 
-Cada conclusión importante debe mantener relación con las
-evidencias proporcionadas en el examen.
+También debe existir una ruta de reprogramación.
+
+Posteriormente, el prototipo debe entregarse a una persona
+de otro equipo sin explicarle cómo utilizarlo.
+
+La tarea será:
+
+\begin{center}
+\textbf{``Reserve una tutoría para el jueves y luego cambie el horario.''}
+\end{center}
 
 % =========================================================
 \subsection{Listado de equipos, materiales y recursos}
@@ -273,9 +283,10 @@ evidencias proporcionadas en el examen.
 \begin{itemize}
     \item Computador portátil.
     \item Navegador web.
-    \item Documento oficial del examen práctico integrador.
-    \item Repositorio GitHub compartido.
-    \item Acceso a FigJam.
+    \item Figma Design.
+    \item GitHub.
+    \item FigJam.
+    \item Resultados de las actividades anteriores.
 \end{itemize}
 
 \textbf{TAC empleadas en la tarea:}
@@ -283,303 +294,375 @@ evidencias proporcionadas en el examen.
 \begin{itemize}
     \emptyitem Plataformas educativas.
     \emptyitem Simuladores y laboratorios virtuales.
-    \checkitem Aplicaciones educativas: FigJam.
-    \emptyitem Recursos audiovisuales.
+    \checkitem Aplicaciones educativas: Figma Design.
+    \checkitem Recursos audiovisuales: capturas del prototipo.
     \emptyitem Gamificación.
     \emptyitem Inteligencia Artificial.
-    \checkitem Otros: GitHub como herramienta colaborativa.
+    \checkitem Otros: GitHub.
 \end{itemize}
 
 % =========================================================
 \subsection{Desarrollo de la Tarea (Actividades a Desarrollar)}
 
-\subsubsection{Problema identificado}
+\subsubsection{Pantalla 1: Inicio y búsqueda}
 
-Actualmente la coordinación de tutorías se realiza mediante
-mensajes de WhatsApp, hojas de cálculo y agendas personales.
+La primera pantalla debe comunicar claramente el objetivo
+de la aplicación.
 
-El estudiante debe contactar al docente, esperar una respuesta,
-proponer diferentes horarios y solicitar una confirmación.
-
-Cuando necesita modificar una tutoría, normalmente debe iniciar
-una nueva conversación.
-
-Este proceso puede ocasionar:
+Debe incluir:
 
 \begin{itemize}
-    \item demoras;
-    \item confirmaciones ambiguas;
-    \item selección de horarios ocupados;
-    \item información desactualizada;
-    \item necesidad de intercambiar múltiples mensajes.
+    \item nombre Tutoría Fácil UTA;
+    \item mensaje principal;
+    \item búsqueda de docente o asignatura;
+    \item acceso a Ver horarios;
+    \item acceso a Mis tutorías.
 \end{itemize}
 
-Como respuesta a este problema se propone
-\textbf{Tutoría Fácil UTA}, una aplicación web móvil que permita
-consultar disponibilidad, reservar, confirmar y reprogramar
-tutorías desde una única interfaz.
+Un ejemplo de distribución sería:
 
-% ---------------------------------------------------------
-\subsubsection{Personas que intervienen}
-
-\textbf{Estudiante}
-
-El estudiante constituye el usuario principal del sistema.
-
-Su objetivo es consultar la disponibilidad de un docente,
-seleccionar una fecha y horario, reservar una tutoría,
-recibir una confirmación clara y posteriormente reprogramarla
-cuando sea necesario.
-
-La evidencia E1 describe a Laura, estudiante de 20 años,
-consultando horarios desde su teléfono mientras viaja en bus.
-
-\vspace{0.2cm}
-
-\textbf{Docente}
-
-El docente constituye un usuario secundario.
-
-Su participación se relaciona principalmente con la disponibilidad
-de horarios y las solicitudes de tutoría.
-
-La evidencia E6 establece que los docentes actualmente reciben
-solicitudes fuera de horario y actualizan manualmente su
-disponibilidad.
-
-\vspace{0.2cm}
-
-\textbf{Secretaría}
-
-La secretaría participa indirectamente en el proceso.
-
-La evidencia E7 indica que transcribe cambios a una hoja de
-cálculo y puede conservar información desactualizada.
-
-% ---------------------------------------------------------
-\subsubsection{Sistema}
-
-Tutoría Fácil UTA deberá procesar, almacenar y comunicar
-información relacionada con:
-
-\begin{itemize}
-    \item docentes;
-    \item fechas;
-    \item disponibilidad;
-    \item horarios;
-    \item reservas;
-    \item estados;
-    \item confirmaciones;
-    \item reprogramaciones.
-\end{itemize}
-
-El sistema debe impedir que un estudiante seleccione un horario
-que ya se encuentre ocupado y proporcionar una respuesta clara
-después de cada acción relevante.
-
-% ---------------------------------------------------------
-\subsubsection{Entradas y salidas}
-
-\begin{table}[H]
+\bocetocaja{%
 \centering
-\caption{Entradas y salidas principales del sistema.}
 
-\begin{tabularx}{\textwidth}{
->{\bfseries\raggedright\arraybackslash}p{2.8cm}
->{\raggedright\arraybackslash}X
->{\raggedright\arraybackslash}X
+\textbf{Tutoría Fácil UTA}\\[0.2cm]
+
+Encuentra y reserva una tutoría académica.\\[0.3cm]
+
+\fbox{\parbox{0.60\textwidth}{\centering Buscar docente o asignatura}}\\[0.3cm]
+
+Ing. Juan Pérez\\
+Programación\\[0.2cm]
+
+\fbox{Ver horarios}\\[0.2cm]
+
+\fbox{Mis tutorías}
 }
 
-\toprule
-\textbf{Proceso} & \textbf{Entradas} & \textbf{Salidas} \\
-\midrule
-
-Reserva &
-Docente, fecha, horario, modalidad y confirmación. &
-Disponibilidad, horario seleccionado, resumen y confirmación. \\
-
-Reprogramación &
-Cita existente y nuevo horario. &
-Nuevo resumen, estado actualizado y confirmación. \\
-
-Errores o carga &
-Reintento o corrección del usuario. &
-Mensajes de carga, indisponibilidad y recuperación. \\
-
-\bottomrule
-
-\end{tabularx}
-\end{table}
-
 % ---------------------------------------------------------
-\subsubsection{Disciplinas relacionadas con IHC}
+\subsubsection{Pantalla 2: Docente y horario}
 
-\textbf{Informática}
+La segunda pantalla permitirá consultar disponibilidad y
+seleccionar una fecha y un horario.
 
-Permite gestionar de forma estructurada la disponibilidad,
-las reservas y los estados de las tutorías, reduciendo
-inconsistencias derivadas del manejo manual.
-
-Se relaciona con E3 y E7.
-
-\vspace{0.2cm}
-
-\textbf{Psicología cognitiva}
-
-Permite analizar cómo el usuario percibe, recuerda y procesa
-la información.
-
-En Tutoría Fácil UTA se busca disminuir la cantidad de información
-que el estudiante debe memorizar mediante resúmenes y estados visibles.
-
-Se relaciona con E4 y E5.
-
-\vspace{0.2cm}
-
-\textbf{Ergonomía}
-
-Permite adaptar el sistema a las condiciones reales de uso.
-
-Las evidencias indican que la aplicación puede utilizarse desde
-un teléfono mientras el usuario se encuentra en movimiento y
-que ciertos usuarios utilizan teclado, ampliación al 200\% y
-lector de pantalla.
-
-Se relaciona con E1 y E2.
-
-\vspace{0.2cm}
-
-\textbf{Diseño}
-
-El diseño permite organizar los controles, estados, etiquetas
-y acciones mediante una jerarquía consistente y comprensible.
-
-Se relaciona con E2 y E9.
-
-% ---------------------------------------------------------
-\subsubsection{Estilos de interacción}
-
-\textbf{Menús}
-
-Se emplearán menús y opciones para acceder a acciones como:
+Debe mostrar:
 
 \begin{itemize}
-    \item reservar tutoría;
-    \item ver horarios;
-    \item consultar mis tutorías;
-    \item reprogramar.
+    \item docente;
+    \item asignatura;
+    \item calendario;
+    \item fecha seleccionada;
+    \item horarios disponibles;
+    \item horarios ocupados;
+    \item horario seleccionado;
+    \item acción Continuar.
 \end{itemize}
 
-\textbf{Formularios}
+Los estados deberán contener texto.
 
-Se utilizarán controles para seleccionar información como:
+Por ejemplo:
+
+\begin{itemize}
+    \item 09:00 -- Disponible.
+    \item 10:00 -- Disponible.
+    \item 11:00 -- Ocupado.
+    \item 12:00 -- Seleccionado.
+\end{itemize}
+
+Los horarios ocupados no podrán seleccionarse.
+
+También se considerarán estados para conexiones variables.
+
+\textbf{Estado de carga:}
+
+\begin{center}
+\textit{Consultando horarios...}
+\end{center}
+
+\textbf{Estado de error:}
+
+\begin{center}
+\textit{No pudimos cargar los horarios. Intentar nuevamente.}
+\end{center}
+
+% ---------------------------------------------------------
+\subsubsection{Pantalla 3: Resumen y confirmación}
+
+La tercera pantalla permitirá revisar los datos antes de
+la confirmación definitiva.
+
+Debe incluir:
 
 \begin{itemize}
     \item docente;
     \item fecha;
+    \item hora;
     \item modalidad;
-    \item horario.
+    \item Confirmar tutoría;
+    \item Cambiar horario.
 \end{itemize}
 
-\textbf{Manipulación directa}
+Ejemplo:
 
-El usuario podrá seleccionar directamente un horario visible.
+\bocetocaja{%
+\centering
+\textbf{Revisa tu tutoría}\\[0.3cm]
 
-Por ejemplo:
+\raggedright
+\textbf{Docente:} Ing. Juan Pérez\\
+\textbf{Fecha:} Jueves 8 de octubre\\
+\textbf{Hora:} 12:00\\
+\textbf{Modalidad:} Presencial\\[0.3cm]
+
+\centering
+\fbox{Confirmar tutoría}\\[0.2cm]
+
+\fbox{Cambiar horario}
+}
+
+La opción Cambiar horario permite corregir la selección antes
+de confirmar definitivamente.
+
+% ---------------------------------------------------------
+\subsubsection{Pantalla 4: Confirmación y reprogramación}
+
+La última pantalla mostrará un estado inequívoco.
+
+Debe incluir:
+
+\begin{itemize}
+    \item Tutoría confirmada;
+    \item docente;
+    \item asignatura;
+    \item fecha;
+    \item hora;
+    \item modalidad;
+    \item estado CONFIRMADA;
+    \item acción Reprogramar;
+    \item acción Volver al inicio.
+\end{itemize}
+
+Ejemplo:
+
+\bocetocaja{%
+\centering
+\textbf{\ding{51} Tutoría confirmada}\\[0.3cm]
+
+\raggedright
+\textbf{Docente:} Ing. Juan Pérez\\
+\textbf{Asignatura:} Programación\\
+\textbf{Fecha:} Jueves 8 de octubre\\
+\textbf{Hora:} 12:00\\
+\textbf{Modalidad:} Presencial\\
+\textbf{Estado:} CONFIRMADA\\[0.3cm]
+
+\centering
+\fbox{Reprogramar}\\[0.2cm]
+
+\fbox{Volver al inicio}
+}
+
+% ---------------------------------------------------------
+\subsubsection{Flujo principal}
+
+El flujo de reserva deberá conectarse de la siguiente manera:
 
 \begin{center}
-\textbf{10:00 -- Disponible}
-\end{center}
+\fcolorbox{UTAblue}{UTAlight}{%
+\parbox{0.78\textwidth}{%
+\centering
 
-Después de seleccionarlo:
-
-\begin{center}
-\textbf{10:00 -- Seleccionado}
+Pantalla 1: Inicio\\
+$\downarrow$\\
+Pantalla 2: Docente y horario\\
+$\downarrow$\\
+Pantalla 3: Resumen\\
+$\downarrow$\\
+Pantalla 4: Confirmación
+}}
 \end{center}
 
 % ---------------------------------------------------------
-\subsubsection{Matriz Humano--Sistema}
+\subsubsection{Flujo de reprogramación}
 
-\begin{longtable}{
->{\raggedright\arraybackslash\bfseries}p{2.4cm}
->{\raggedright\arraybackslash}p{8.6cm}
->{\raggedright\arraybackslash}p{2.2cm}
+La reprogramación utilizará el siguiente recorrido:
+
+\begin{center}
+\fcolorbox{UTAblue}{UTAlight}{%
+\parbox{0.78\textwidth}{%
+\centering
+
+Pantalla 4: Confirmación\\
+$\downarrow$\\
+Reprogramar\\
+$\downarrow$\\
+Pantalla 2: Seleccionar nuevo horario\\
+$\downarrow$\\
+Pantalla 3: Resumen\\
+$\downarrow$\\
+Pantalla 4: Nueva confirmación
+}}
+\end{center}
+
+% ---------------------------------------------------------
+\subsubsection{Archivos que deben subirse}
+
+La evidencia del prototipo debe quedar organizada de la
+siguiente manera:
+
+\begin{verbatim}
+prototipo/
+|-- captura_01_inicio.png
+|-- captura_02_horarios.png
+|-- captura_03_resumen.png
+|-- captura_04_confirmacion.png
+`-- enlace_prototipo.md
+
+evaluacion/
+|-- prueba_iteracion.md
+|-- antes.png
+`-- despues.png
+\end{verbatim}
+
+% ---------------------------------------------------------
+\subsubsection{Prueba cruzada}
+
+Una persona perteneciente a otro equipo deberá realizar la
+siguiente tarea sin recibir explicaciones sobre la interfaz:
+
+\begin{center}
+\textbf{``Reserve una tutoría para el jueves y luego cambie el horario.''}
+\end{center}
+
+Los resultados deberán registrarse en la siguiente tabla.
+
+\begin{table}[H]
+\centering
+\caption{Registro de la prueba cruzada.}
+
+\begin{tabularx}{\textwidth}{
+>{\raggedright\arraybackslash}p{4.2cm}
+>{\raggedright\arraybackslash}X
 }
 
-\caption{Matriz Humano--Sistema.}\\
-
 \toprule
-\textbf{Elemento} &
-\textbf{Aplicación en Tutoría Fácil UTA} &
-\textbf{Evidencia} \\
+\textbf{Dato} &
+\textbf{Registro real} \\
 \midrule
-\endfirsthead
 
-\toprule
-\textbf{Elemento} &
-\textbf{Aplicación en Tutoría Fácil UTA} &
-\textbf{Evidencia} \\
-\midrule
-\endhead
+Participante &
+\textit{Completar después de ejecutar la prueba.} \\
 
-\midrule
-\multicolumn{3}{r}{\footnotesize\itshape Continúa en la siguiente página} \\
-\endfoot
+¿Completó la tarea? &
+\textit{Sí / No.} \\
+
+Tiempo aproximado &
+\textit{Completar con el tiempo real.} \\
+
+Error o duda observable &
+\textit{Describir únicamente lo que realmente ocurrió.} \\
+
+Comentario final &
+\textit{Registrar el comentario de la persona.} \\
 
 \bottomrule
-\endlastfoot
 
-Personas &
-Estudiante como usuario principal; docente y secretaría
-como participantes secundarios. &
-E1, E6, E7 \\
+\end{tabularx}
 
-Sistema &
-Gestiona disponibilidad, reserva, estado y cambio de horario. &
-E3, E5, E6 \\
+\end{table}
 
-Entradas &
-Selección de docente, fecha, horario, modalidad y confirmación. &
-E1, E3, E10 \\
+% ---------------------------------------------------------
+\subsubsection{Hallazgo}
 
-Salidas &
-Horarios, selección, confirmación, estados de carga y errores. &
-E3, E5, E8 \\
+\textbf{Hallazgo real:}
 
-Informática &
-Automatiza y centraliza disponibilidad y reservas. &
-E3, E7 \\
+\begin{quote}
+\textit{Completar después de observar la prueba.
+No debe inventarse esta información.}
+\end{quote}
 
-Psicología cognitiva &
-Reduce memoria y carga cognitiva mediante reconocimiento y resúmenes. &
-E4, E5 \\
+El hallazgo debe describir un problema concreto observado
+durante la ejecución.
 
-Ergonomía &
-Considera móvil, teclado, ampliación y tecnologías de apoyo. &
-E1, E2 \\
+% ---------------------------------------------------------
+\subsubsection{Mejora aplicada}
 
-Diseño &
-Organiza controles y estados de manera clara y consistente. &
-E2, E9 \\
+\textbf{Modificación realizada:}
 
-Interacción &
-Menús, formularios y manipulación directa de horarios. &
-E9, E10 \\
+\begin{quote}
+\textit{Completar únicamente después de modificar el prototipo en
+respuesta al hallazgo real.}
+\end{quote}
 
-\end{longtable}
+La mejora debe estar directamente relacionada con el problema
+observado.
+
+% ---------------------------------------------------------
+\subsubsection{Comparación antes y después}
+
+Se debe conservar:
+
+\begin{itemize}
+    \item una captura de la interfaz antes de la mejora;
+    \item una captura después de realizar el cambio;
+    \item el commit correspondiente;
+    \item relación con el issue o pull request asociado.
+\end{itemize}
 
 % =========================================================
 \subsection{Resultados obtenidos}
 
-Como resultado se obtuvo una matriz de análisis que relaciona
-el problema actual con usuarios, entradas, salidas, disciplinas
-y estilos de interacción.
+Como resultado se obtiene un prototipo navegable compuesto
+por cuatro pantallas conectadas.
 
-El análisis permite fundamentar las siguientes etapas de diseño
-sin copiar una interfaz previa y mantiene trazabilidad con las
-evidencias E1 a E10.
+El flujo permite:
 
-\capturaespacio{Evidencia del tablero FigJam: Matriz Humano--Sistema}
+\begin{itemize}
+    \item buscar una tutoría;
+    \item seleccionar fecha y horario;
+    \item diferenciar opciones disponibles y ocupadas;
+    \item revisar los datos antes de confirmar;
+    \item recibir una confirmación inequívoca;
+    \item iniciar una reprogramación.
+\end{itemize}
+
+Los resultados de la evaluación deberán completarse únicamente
+después de ejecutar la prueba real.
+
+Inicio:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{img/image.png}
+    \caption{Pantalla de inicio y búsqueda de Tutoría Fácil UTA.}
+    \label{fig:inicio}
+\end{figure}
+
+Docente y horario:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{img/tutorias.png}
+    \caption{Pantalla de inicio y búsqueda de Tutoría Fácil UTA.}
+    \label{fig:inicio}
+\end{figure}
+
+Resumen y confirmación:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{img/revervacion.png}
+    \caption{Pantalla de inicio y búsqueda de Tutoría Fácil UTA.}
+    \label{fig:inicio}
+\end{figure}
+
+Confirmada y reprogramación:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{img/comfirmacion.png}
+    \caption{Pantalla de inicio y búsqueda de Tutoría Fácil UTA.}
+    \label{fig:inicio}
+\end{figure}
 
 % =========================================================
 \subsection{Habilidades blandas empleadas en la tarea}
@@ -588,9 +671,9 @@ evidencias E1 a E10.
     \emptyitem Liderazgo.
     \checkitem Trabajo en equipo.
     \checkitem Comunicación asertiva.
-    \emptyitem Empatía.
+    \checkitem Empatía.
     \checkitem Pensamiento crítico.
-    \emptyitem Flexibilidad.
+    \checkitem Flexibilidad.
     \emptyitem Resolución de conflictos.
     \checkitem Adaptabilidad.
     \checkitem Responsabilidad.
@@ -601,17 +684,16 @@ evidencias E1 a E10.
 
 \begin{itemize}
 
-    \item El estudiante debe encontrarse en el centro del flujo
-    de interacción, debido a que actualmente depende de varias
-    conversaciones manuales para completar una tutoría.
+    \item El prototipo debe demostrar la aplicación de las
+    decisiones de IHC y no limitarse únicamente a una
+    presentación visual.
 
-    \item Tutoría Fácil UTA debe mantener visibles los estados
-    de disponibilidad, selección y confirmación para reducir
-    ambigüedad y prevenir errores.
+    \item La prueba cruzada permite detectar problemas reales
+    de comprensión que pueden pasar desapercibidos durante
+    el diseño inicial.
 
-    \item La accesibilidad, ergonomía y consistencia deben
-    incorporarse desde las primeras etapas del diseño y no
-    únicamente como correcciones posteriores.
+    \item La iteración solo es válida cuando la modificación
+    realizada responde directamente a un hallazgo observado.
 
 \end{itemize}
 
@@ -620,20 +702,23 @@ evidencias E1 a E10.
 
 \begin{itemize}
 
-    \item Mantener cada decisión importante relacionada con
-    al menos una evidencia E1 a E10.
+    \item No inventar tiempos, comentarios ni hallazgos de
+    la prueba.
 
-    \item Evitar utilizar exclusivamente colores o iconos
-    para comunicar información.
+    \item Verificar que el enlace de Figma funcione en una
+    ventana privada antes de entregar.
 
-    \item Conservar la matriz Humano--Sistema como referencia
-    durante la construcción del prototipo.
+    \item Mantener las capturas antes y después de la mejora.
+
+    \item Verificar que el flujo de reprogramación funcione
+    desde la pantalla de confirmación.
+
+    \item Relacionar el commit de la mejora con el issue o PR
+    correspondiente.
 
 \end{itemize}
 
 % =========================================================
-% Se reemplazó thebibliography: generaba un segundo título
-% "Referencias" duplicado debajo de la subsección.
 \subsection{Referencias}
 
 \begin{list}{}{%
@@ -646,5 +731,33 @@ integrador del primer parcial: Diseño desde cero de un sistema web
 para reservar tutorías'', Interacción Humano Computador, 2026.
 \end{list}
 
+% =========================================================
+\subsection{Anexos}
+
+Antes mejora:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{img/antesmejora.png}
+    \caption{Pantalla de inicio y búsqueda de Tutoría Fácil UTA.}
+    \label{fig:inicio}
+\end{figure}
+
+Despues mejora:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{img/despuesmejora.png}
+    \caption{Pantalla de inicio y búsqueda de Tutoría Fácil UTA.}
+    \label{fig:inicio}
+\end{figure}
+
+\vfill
+
+\begin{center}
+\scriptsize
+\color{UTAgray}
+Documento de respaldo del prototipo, prueba cruzada e iteración.
+\end{center}
 
 \end{document}
