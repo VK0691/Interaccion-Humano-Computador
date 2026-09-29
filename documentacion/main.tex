@@ -1,144 +1,498 @@
-\documentclass{article}
+\documentclass[11pt]{article}
 
-% Language setting
-% Replace `english' with e.g. `spanish' to change the document language
-\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish,es-nodecimaldot]{babel}
 
-\usepackage[letterpaper,top=2cm,bottom=5cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage[
+    letterpaper,
+    top=3.3cm,
+    bottom=2.6cm,
+    left=2.5cm,
+    right=2.5cm,
+    headheight=76pt
+]{geometry}
 
-% Useful packages
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{graphicx}
-\usepackage[colorlinks=true, allcolors=blue]{hyperref}
-\usepackage{amssymb} 
+\usepackage{xcolor}
+\usepackage[
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    urlcolor=blue!60!black,
+    citecolor=blue!60!black,
+    hypertexnames=false
+]{hyperref}
 \usepackage{fancyhdr}
-\usepackage{lipsum} % Para generar texto de ejemplo
-\usepackage{multicol}
-\pagestyle{fancy} 
 \usepackage{url}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{lastpage}
+\usepackage{float}
 
-  
+\definecolor{UTAblue}{HTML}{123C69}
+\definecolor{UTAlight}{HTML}{EAF1F8}
+\definecolor{UTAgray}{HTML}{5F6368}
 
-\fancyhf{} % Limpiar encabezado y pie de página por defecto
-\setlength{\headheight}{70pt} % Ajuste del tamaño del encabezado (puedes aumentar este valor si es necesario)
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
 
-% Definición del encabezado
+\setlist[itemize]{leftmargin=1.5em, itemsep=0.25em, topsep=0.25em}
 
+\renewcommand{\arraystretch}{1.25}
+
+\titleformat{\section}{\large\bfseries\color{UTAblue}}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries\color{UTAblue}}{\thesubsection.}{0.5em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection.}{0.5em}{}
+
+\newcommand{\logoUTA}{%
+    \IfFileExists{img/uta.png}{\includegraphics[width=1.65cm]{img/uta.png}}%
+    {\fbox{\rule{0pt}{1.35cm}\rule{1.35cm}{0pt}}}%
+}
+\newcommand{\logoFISEI}{%
+    \IfFileExists{img/fisei.png}{\includegraphics[width=1.65cm]{img/fisei.png}}%
+    {\fbox{\rule{0pt}{1.35cm}\rule{1.35cm}{0pt}}}%
+}
+
+\pagestyle{fancy}
+\fancyhf{}
 \fancyhead[C]{%
-    \begin{minipage}[c]{2.0cm}
+    \begin{minipage}[c]{0.15\textwidth}\centering\logoUTA\end{minipage}%
+    \hfill
+    \begin{minipage}[c]{0.66\textwidth}
         \centering
-        \includegraphics[width=2.0cm]{img/uta.png}
+        \small\textbf{UNIVERSIDAD TÉCNICA DE AMBATO}\\[0.08cm]
+        \scriptsize\textit{FACULTAD DE INGENIERÍA EN SISTEMAS, ELECTRÓNICA E INDUSTRIAL}\\[0.08cm]
+        \scriptsize\textbf{CARRERA DE SOFTWARE -- INTERACCIÓN HUMANO-COMPUTADOR}\\[0.08cm]
+        \scriptsize\textbf{CICLO ACADÉMICO: AGOSTO -- DICIEMBRE 2026}
     \end{minipage}%
     \hfill
-    \begin{minipage}[c]{8cm} 
+    \begin{minipage}[c]{0.15\textwidth}\centering\logoFISEI\end{minipage}%
+}
+\fancyfoot[L]{\scriptsize Tutoría Fácil UTA}
+\fancyfoot[C]{\scriptsize Interacción Humano-Computador}
+\fancyfoot[R]{\scriptsize Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\newcommand{\checkitem}{\item[$\boxtimes$]}
+\newcommand{\emptyitem}{\item[$\square$]}
+
+\newcommand{\placeholder}[1]{%
+\begin{center}
+\fcolorbox{UTAblue}{UTAlight}{%
+    \parbox[c][4.2cm][c]{0.88\textwidth}{%
         \centering
-        \small {\textbf{UNIVERSIDAD TÉCNICA DE AMBATO}} \\[0.1cm]
-        \scriptsize \textit{FACULTAD DE INGENIERÍA EN SISTEMAS ELECTRÓNICA E INDUSTRIAL} \\[0.1cm]
-        \scriptsize \textbf{CARRERA SOFTWARE - ITERACCION HUMANO-COMPUTADOR} \\[0.1cm]
-        \scriptsize \textbf{CICLO ACADÉMICO: AGOSTO  - DICIEMBRE 2026}
-    \end{minipage}%
-    \hfill
-    \begin{minipage}[c]{2.0cm}
-        \centering
-        \includegraphics[width=2.0cm]{img/fisei.png}
-    \end{minipage}%
+        \textbf{#1}\\[0.3cm]
+        \small Inserte aquí la captura correspondiente antes de la entrega.
+    }%
+}
+\end{center}
 }
 
 \begin{document}
+
 \begin{center}
-    {\large \textbf{INFORME DE TAREA}} \\    
+    {\Large\bfseries\color{UTAblue} INFORME DE TAREA}\\[0.35cm]
+    {\large\bfseries Usabilidad (ISO 9241-11) y Accesibilidad (POUR)}\\[0.2cm]
+    \rule{0.82\textwidth}{0.6pt}
 \end{center}
 
 \section{Portada}
+
 \begin{flushleft}
-\begin{tabular}{ l l }
-    \textbf{Tema:} & Tema de la tarea proporcionada por el docente \\
-    \\textbf{Unidad de Organización Curricular:} & Profesional. \\
-    \textbf{Nivel y Paralelo:} & Quinto - B \\
-    \textbf{Alumnos participante(s):} & Bejarano Masabanda Carlos Fabian\\
-    & Guatemal Avilez Bryan Stalin \\
-    & Molina Nuñez Karen Valeria\\
-    & Solis Salinas Mario Tomas\\
-    & \dotfill \\
-    \textbf{Asignatura:} & Interacion Humano / Computador \\
-    \textbf{Docente:} & Ing. Jose Ruben Caiza Caizabuano, Mg. \\
-\end{tabular}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\textwidth}{>{\bfseries}p{4.4cm} X}
+Tema: & Diseño desde cero de un sistema web para reservar tutorías \\
+Unidad de Organización Curricular: & Profesional \\
+Nivel y Paralelo: & Quinto -- B \\
+Responsable del documento: & Guatemal Avilez Bryan Stalin \\
+Integrantes del equipo: &
+\begin{tabular}[t]{@{}l@{}}
+Bejarano Masabanda Carlos Fabian\\
+Guatemal Avilez Bryan Stalin\\
+Molina Nuñez Karen Valeria\\
+Solis Salinas Mario Tomas
+\end{tabular} \\
+Asignatura: & Interacción Humano-Computador \\
+Docente: & Ing. Jose Ruben Caiza Caizabuano, Mg. \\
+Proyecto: & Tutoría Fácil UTA \\
+Evidencia en el repositorio: & \texttt{docs/02\_usabilidad\_accesibilidad.pdf} \\
+\end{tabularx}
 \end{flushleft}
 
-
 \section{Informe de la Tarea}
-\subsection{Objetivos}
-\subsubsection{General}
-(Especificado en la guía tarea proporcionada por el docente).
-\subsubsection{Específicos}
-\begin{itemize}
-    \item (Se recomienda máximo 3).
-    \item 
-    \item 
-\end{itemize}
 
+\subsection{Objetivos}
+
+\subsubsection{General}
+
+Definir criterios medibles de calidad de uso, según ISO 9241-11, y
+decisiones verificables de accesibilidad, según los principios POUR,
+para el flujo principal de Tutoría Fácil UTA. Todas las decisiones se
+basan en las evidencias E1 a E10 del caso.
+
+\subsubsection{Específicos}
+
+\begin{itemize}
+    \item Formular indicadores de efectividad, eficiencia y satisfacción,
+    cada uno con su forma de medición, línea base y meta.
+    \item Incorporar criterios medibles de aprendizaje y recuperación de errores.
+    \item Aplicar los cuatro principios POUR mediante decisiones que puedan
+    comprobarse en el prototipo de Figma.
+\end{itemize}
 
 \subsection{Instrucciones}
 
-Detalladas en la asignación de la tarea proporcionada por el docente.
-
+Antes de diseñar las pantallas deben establecerse los indicadores de
+usabilidad y las decisiones de accesibilidad. Cada indicador necesita una
+forma de medición y una meta, y cada decisión de accesibilidad debe
+indicar cómo se verificará. La accesibilidad cubre los cuatro principios
+POUR: Perceptible, Operable, Comprensible y Robusto.
 
 \subsection{Listado de equipos, materiales y recursos}
-\textbf{Listado de equipos y materiales generales empleados en la tarea:}
+
+\textbf{Listado de equipos y materiales generales empleados:}
 \begin{itemize}
-    \item  
+    \item Computador portátil y teléfono móvil para la prueba.
+    \item Navegador web.
+    \item Documento oficial del examen (evidencias E1 a E10).
+    \item FigJam, Figma Design y GitHub.
+    \item Cronómetro para medir los tiempos de la prueba cruzada.
 \end{itemize}
 
-\textbf{TAC (Tecnologías para el Aprendizaje y Conocimiento) empleados en la tarea:}
+\textbf{TAC empleadas en la tarea:}
 \begin{itemize}
-    \item[$\square$] Plataformas educativas
-    \item[$\square$] Simuladores y laboratorios virtuales
-    \item[$\square$] Aplicaciones educativas
-    \item[$\square$] Recursos audiovisuales
-    \item[$\square$] Gamificación
-    \item[$\square$] Inteligencia Artificial
-    \item Otros (Especifique): \underline{\hspace{5cm}}
+    \emptyitem Plataformas educativas.
+    \emptyitem Simuladores y laboratorios virtuales.
+    \checkitem Aplicaciones educativas: FigJam y Figma Design.
+    \emptyitem Recursos audiovisuales.
+    \emptyitem Gamificación.
+    \checkitem Inteligencia Artificial: apoyo en la redacción y el formato.
+    \checkitem Otros: GitHub.
 \end{itemize}
-
 
 \subsection{Desarrollo de la Tarea (Actividades a Desarrollar)}
 
-Detalladas en las instrucciones proporcionadas por el docente.
+\subsubsection{Línea base: el proceso actual}
 
-\subsection{Resultados obtenidos}
-De acuerdo con el tipo de trabajo, se plasmarán los resultados alcanzados en la guía tarea una vez ejecutadas las actividades. Se pueden emplear figuras y tablas las cuales deben ser numeradas.
+Las evidencias del caso permiten cuantificar el proceso actual y usarlo
+como punto de comparación para las metas:
 
-
-%Especifique las TAC's utilizadas en la Tarea. 
-\subsection{Habilidades blandas empleadas en la tarea}
 \begin{itemize}
-    \item[$\square$] Liderazgo
-    \item[$\square$] Trabajo en equipo
-    \item[$\square$] Comunicación asertiva
-    \item[$\square$] La empatía
-    \item[$\square$] Pensamiento crítico
-    \item[$\square$] Flexibilidad
-    \item[$\square$] La resolución de conflictos
-    \item[$\square$] Adaptabilidad
-    \item[$\square$] Responsabilidad
+    \item \textbf{E3:} de 12 solicitudes observadas, 4 tuvieron confirmaciones
+    ambiguas (33\%) y hubo 3 intentos de seleccionar horarios ya ocupados (25\%).
+    \item \textbf{E4:} el proceso tarda en promedio 14 minutos y requiere 9 mensajes
+    hasta obtener una confirmación.
+    \item \textbf{E5:} dos estudiantes olvidaron la fecha acordada porque la
+    confirmación quedó mezclada con otros mensajes.
 \end{itemize}
 
+\subsubsection{Indicador de efectividad}
+
+\textbf{Indicador:} porcentaje de participantes que completan correctamente
+la reserva sin ayuda externa y terminan con una confirmación comprensible.
+
+\textbf{Forma de medición:}
+\[
+\text{Efectividad} =
+\frac{\text{Participantes que completan la tarea sin ayuda}}
+{\text{Total de participantes}} \times 100
+\]
+
+El observador registra sí o no por participante. Una tarea cuenta como
+completada solo si el participante llega a la pantalla con el estado
+\textit{CONFIRMADA} y puede decir la fecha y la hora de su cita.
+
+\textbf{Meta:} $\geq 90\%$. Hoy, en cambio, un 33\% de las confirmaciones
+son ambiguas (E3).
+
+\subsubsection{Indicador de eficiencia}
+
+\textbf{Indicador:} tiempo y número de acciones principales (toques o
+pulsaciones) desde \textit{Ver horarios} hasta el estado \textit{CONFIRMADA}.
+
+\textbf{Forma de medición:} el tiempo se toma con cronómetro, desde que el
+participante recibe la consigna hasta que ve la confirmación. Las acciones se
+cuentan observando la sesión.
+
+\textbf{Meta:} $\leq 3$ minutos y $\leq 8$ acciones principales, frente a los
+14 minutos y 9 mensajes del proceso actual (E4). Esto representa una
+reducción del tiempo de al menos un 78\%.
+
+\subsubsection{Indicador de satisfacción}
+
+\textbf{Indicador:} valoración del participante inmediatamente después de la tarea.
+
+\textbf{Forma de medición:} escala de 1 a 7, donde 1 significa \textit{muy
+difícil} y 7 \textit{muy fácil}, respondiendo a la pregunta:
+
+\begin{center}
+\textit{¿Qué tan fácil te resultó reservar y cambiar el horario de la tutoría?}
+\end{center}
+
+\textbf{Meta:} promedio $\geq 6/7$. Esto responde a la necesidad de reservar
+sin intercambiar varios mensajes (E1).
+
+\subsubsection{Aprendizaje y recuperación de errores}
+
+\textbf{Indicadores:}
+\begin{itemize}
+    \item \textbf{Aprendizaje:} porcentaje de participantes que seleccionan un
+    horario correctamente en su primer intento, sin dudar ni preguntar.
+    \item \textbf{Errores:} número de intentos de seleccionar un horario ocupado (E3).
+    \item \textbf{Recuperación:} porcentaje de participantes que corrigen una
+    selección con \textit{Cambiar horario} o \textit{Volver} sin reiniciar el
+    proceso (E10).
+    \item \textbf{Reprogramación:} el participante encuentra \textit{Reprogramar}
+    en la tarjeta de la cita sin ayuda.
+\end{itemize}
+
+\textbf{Metas:} $\geq 80\%$ acierta en el primer intento, 0 reservas
+confirmadas sobre horarios ocupados y 100\% de recuperación sin reiniciar.
+
+Para que estas metas sean alcanzables, la interfaz ofrece acciones
+comprensibles en cada punto del flujo: \textit{Volver}, \textit{Cambiar
+horario}, \textit{Intentar nuevamente} y \textit{Reprogramar}.
+
+\subsubsection{Matriz de indicadores}
+
+\begin{table}[H]
+\centering
+\caption{Indicadores de usabilidad según ISO 9241-11.}
+\small
+\begin{tabularx}{\textwidth}{p{2.3cm} X p{3.4cm} p{1.4cm}}
+\toprule
+\textbf{Dimensión} & \textbf{Indicador y forma de medición} & \textbf{Meta} & \textbf{Evid.} \\
+\midrule
+Efectividad &
+Porcentaje de participantes que completan la reserva sin ayuda (sí o no por participante). &
+$\geq 90\%$ (hoy: 33\% de confirmaciones ambiguas) & E3 \\
+Eficiencia &
+Tiempo con cronómetro y número de acciones desde \textit{Ver horarios} hasta \textit{CONFIRMADA}. &
+$\leq 3$ min y $\leq 8$ acciones (hoy: 14 min y 9 mensajes) & E4 \\
+Satisfacción &
+Valoración posterior a la tarea en escala de 1 a 7. &
+Promedio $\geq 6/7$ & E1 \\
+Aprendizaje y errores &
+Acierto en el primer intento, intentos sobre horarios ocupados y recuperación sin reiniciar. &
+$\geq 80\%$, 0 y 100\% & E3, E10 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsubsection{Principio Perceptible}
+
+\textbf{Decisión:} la información no depende únicamente del color. Cada estado
+combina color, un icono con etiqueta y texto, por ejemplo:
+
+\begin{itemize}
+    \item 09:00 -- Disponible (borde azul).
+    \item 10:00 -- Seleccionado \checkmark{} (relleno azul).
+    \item 11:00 -- Ocupado (gris y no seleccionable).
+    \item CONFIRMADA (verde, icono y texto).
+\end{itemize}
+
+Además:
+\begin{itemize}
+    \item el contraste del texto es de al menos 4,5:1 (WCAG 2.1, nivel AA);
+    \item el cuerpo de texto mide 16\,px y el texto auxiliar nunca menos de 14\,px;
+    \item el diseño sigue siendo legible con una ampliación al 200\% (E2).
+\end{itemize}
+
+\textbf{Evidencias:} E2 y E9.
+
+\textbf{Verificación:} se inspeccionan las pantallas en escala de grises. Los
+estados deben seguir distinguiéndose por su texto.
+
+\subsubsection{Principio Operable}
+
+\textbf{Decisión:}
+\begin{itemize}
+    \item Todo el flujo puede completarse con teclado, siguiendo un orden de
+    tabulación lógico: Volver $\rightarrow$ Docente $\rightarrow$ Fecha
+    $\rightarrow$ Horarios $\rightarrow$ Continuar.
+    \item El foco es visible, con un contorno de 3\,px.
+    \item Las áreas táctiles miden al menos $44 \times 44$\,px, para poder usar
+    la aplicación con una mano en el bus (E1).
+    \item Ninguna acción depende exclusivamente de un gesto.
+\end{itemize}
+
+\textbf{Evidencias:} E1 y E2.
+
+\textbf{Verificación:} se recorre el flujo completo solo con el teclado
+(Tab, Enter y Espacio) y se anota el orden de tabulación en el prototipo.
+
+\subsubsection{Principio Comprensible}
+
+\textbf{Decisión:} las mismas etiquetas se usan en todas las pantallas:
+
+\begin{itemize}
+    \item Ver horarios y Mis tutorías.
+    \item Continuar.
+    \item Confirmar tutoría.
+    \item Cambiar horario y Reprogramar.
+    \item Volver al inicio.
+\end{itemize}
+
+No se usan iconos aislados sin texto (E9). Antes de confirmar se muestra un
+resumen con docente, fecha, hora y modalidad (E10). Los mensajes de error
+explican qué ocurrió y cómo corregirlo, por ejemplo: \textit{``Este horario
+acaba de ocuparse. Elige otro disponible''} (E3).
+
+\textbf{Evidencias:} E3, E9 y E10.
+
+\textbf{Verificación:} la prueba cruzada se realiza sin explicación previa.
+
+\subsubsection{Principio Robusto}
+
+\textbf{Decisión:} cada control tiene un nombre accesible completo y un rol
+definido, para que las tecnologías de apoyo puedan interpretarlo (E2). Por ejemplo:
+
+\begin{center}
+\textit{``Jueves 15 de octubre, 10:00 a 10:30, horario disponible''}
+\quad en lugar de \quad \textit{``Botón 3''}
+\end{center}
+
+Los mensajes de carga y de confirmación (\textit{``Consultando horarios\ldots''},
+\textit{``Tutoría CONFIRMADA''}) se anuncian mediante una región
+\texttt{aria-live}. Así, el lector de pantalla comunica el estado aunque la
+conexión tarde (E8).
+
+\textbf{Evidencias:} E2 y E8.
+
+\textbf{Verificación:} se revisa la especificación de nombres, roles y
+anotaciones en el prototipo.
+
+\subsubsection{Matriz POUR}
+
+\begin{table}[H]
+\centering
+\caption{Aplicación de los principios POUR.}
+\small
+\begin{tabularx}{\textwidth}{p{2.2cm} X p{3.3cm} p{1.3cm}}
+\toprule
+\textbf{Principio} & \textbf{Decisión aplicada} & \textbf{Cómo se verificará} & \textbf{Evid.} \\
+\midrule
+Perceptible &
+Estados con texto e icono etiquetado, no solo color; contraste $\geq 4{,}5$:1; legible al 200\%. &
+Inspección de pantallas en escala de grises. & E2, E9 \\
+Operable &
+Navegación completa por teclado, orden lógico, foco visible de 3\,px y áreas $\geq 44$\,px. &
+Recorrido completo con teclado. & E1, E2 \\
+Comprensible &
+Etiquetas consistentes, resumen antes de confirmar y errores que explican la corrección. &
+Tarea de reserva sin explicación previa. & E3, E9, E10 \\
+Robusto &
+Nombres accesibles completos, roles definidos y estados anunciados con \texttt{aria-live}. &
+Revisión de la especificación anotada. & E2, E8 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsubsection{Relación con el prototipo}
+
+\begin{table}[H]
+\centering
+\caption{Dónde se comprueba cada decisión en las cuatro pantallas.}
+\small
+\begin{tabularx}{\textwidth}{p{4.2cm} X}
+\toprule
+\textbf{Pantalla} & \textbf{Decisiones visibles} \\
+\midrule
+P1 Inicio y búsqueda & Etiquetas \textit{Ver horarios} y \textit{Mis tutorías}; jerarquía y foco. \\
+P2 Docente y horario & Estados Disponible, Ocupado y Seleccionado con texto; teclado; \textit{Consultando horarios\ldots}. \\
+P3 Resumen y confirmación & Resumen completo, \textit{Cambiar horario} antes de confirmar (E10). \\
+P4 Confirmada y reprogramación & Estado textual \textit{CONFIRMADA} y acción \textit{Reprogramar}. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Resultados obtenidos}
+
+\begin{itemize}
+    \item Se definieron cuatro indicadores de usabilidad (efectividad, eficiencia,
+    satisfacción, y aprendizaje y errores). Cada uno tiene forma de medición y
+    meta, y los tres primeros se comparan con la línea base de E3 y E4.
+    \item Se establecieron cuatro decisiones POUR, cada una con evidencia y
+    método de verificación.
+    \item Cada decisión se vinculó con la pantalla del prototipo donde puede
+    comprobarse. Las metas se contrastarán en la prueba cruzada documentada en
+    \texttt{evaluacion/prueba\_iteracion.md}.
+\end{itemize}
+
+\placeholder{Figura 1. Captura de FigJam: indicadores de usabilidad y matriz POUR}
+
+\subsection{Habilidades blandas empleadas en la tarea}
+
+\begin{itemize}
+    \emptyitem Liderazgo.
+    \checkitem Trabajo en equipo.
+    \checkitem Comunicación asertiva.
+    \checkitem Empatía.
+    \checkitem Pensamiento crítico.
+    \emptyitem Flexibilidad.
+    \emptyitem Resolución de conflictos.
+    \checkitem Adaptabilidad.
+    \checkitem Responsabilidad.
+\end{itemize}
 
 \subsection{Conclusiones}
-Constituye la respuesta que propone el o los estudiantes para el problema que originó el trabajo desarrollado, de acuerdo con los datos recogidos y la teoría aplicada. 
+
+\begin{itemize}
+    \item Evaluar la usabilidad con metas cuantificables y una línea base tomada
+    del caso (14 minutos, 9 mensajes y 33\% de confirmaciones ambiguas) permite
+    comprobar objetivamente si el prototipo mejora el proceso actual, en lugar
+    de depender de apreciaciones subjetivas.
+    \item La accesibilidad solo es real si la aplicación puede usarse sin
+    depender del ratón, del color o de iconos aislados. Esto beneficia tanto a
+    usuarios con lector de pantalla (E2) como a quienes usan el teléfono en
+    movimiento (E1).
+    \item La prevención y recuperación de errores deben diseñarse antes de la
+    confirmación definitiva, mediante un resumen editable y horarios ocupados que
+    no se pueden seleccionar (E3, E10).
+\end{itemize}
 
 \subsection{Recomendaciones}
-Redactar las sugerencias o acciones concretas que se derivan de la tarea desarrollada. \cite{greenwade93}
 
+\begin{itemize}
+    \item Durante la prueba cruzada, aplicar exactamente las mismas métricas
+    definidas en este documento y registrar los resultados reales.
+    \item Probar el flujo completo con teclado y en escala de grises antes de
+    entregar el prototipo.
+    \item Mantener las mismas etiquetas en las cuatro pantallas y en la guía de
+    estilo (documento 04 de decisiones de diseño).
+    \item En una siguiente iteración, validar el prototipo con un lector de
+    pantalla real y con más participantes.
+\end{itemize}
 
 \subsection{Referencias}
-Insertar las referencias bibliográficas empleadas aplicando la norma IEEE.
 
-\vspace{-3em} %reduce el espacio causado por refname vacío
-\renewcommand{\refname}{}
-\bibliographystyle{ieeetr}
-\bibliography{citas}
+\begin{thebibliography}{9}
+
+\bibitem{guia}
+Universidad Técnica de Ambato, FISEI, ``Examen práctico integrador del primer
+parcial: Diseño desde cero de un sistema web para reservar tutorías,''
+Interacción Humano Computador, Ambato, Ecuador, 2026.
+
+\bibitem{iso11}
+International Organization for Standardization, \textit{ISO 9241-11:2018
+Ergonomics of human-system interaction -- Part 11: Usability: Definitions and
+concepts}. Ginebra, Suiza: ISO, 2018.
+
+\bibitem{wcag}
+World Wide Web Consortium (W3C), ``Web Content Accessibility Guidelines
+(WCAG) 2.1,'' W3C Recommendation, 2018. [En línea]. Disponible:
+\url{https://www.w3.org/TR/WCAG21/}
+
+\end{thebibliography}
 
 \subsection{Anexos}
-\vfill
+
+
 \end{document}
