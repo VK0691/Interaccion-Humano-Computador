@@ -1,0 +1,7 @@
+2. Bryan Guatemal — Evaluación emocional
+Responsable de realizar y documentar la evaluación con dos estudiantes, identificados como E1 y E2, utilizando los siete momentos del recorrido.
+Archivos que debe subir:
+- Matriz_Emociones.csv
+- Registro_Evaluacion_E1_E2.md
+El registro debe incluir las valoraciones reales, observaciones, dificultades y resultados de las tareas.
+Commit sugerido: docs: registrar evaluacion emocional de dos estudiantes

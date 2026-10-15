@@ -1,0 +1,245 @@
+\documentclass[10pt,letterpaper]{article}
+% Informe de Interacción Humano--Computador. Compilación: pdfLaTeX.
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage[letterpaper,top=3.2cm,bottom=2cm,left=2.5cm,right=2.5cm,headheight=62pt,headsep=0.45cm]{geometry}
+\usepackage{lmodern,microtype}
+\usepackage{graphicx,amssymb,amsmath,array,booktabs,tabularx,enumitem}
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{fancyhdr,lastpage}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black,linkcolor=black]{hyperref}
+\usepackage{xurl}
+\definecolor{azuluta}{RGB}{23,64,108}
+\definecolor{grislinea}{RGB}{224,229,234}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.13}
+\setlist[itemize]{leftmargin=*,itemsep=1pt,topsep=2pt}
+\setlist[enumerate]{leftmargin=*,itemsep=1pt,topsep=2pt}
+\setcounter{secnumdepth}{2}
+\renewcommand{\thesection}{\arabic{section}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{%
+  \begin{minipage}[c]{1.5cm}\centering
+    \IfFileExists{imagenes/uta.png}{\includegraphics[width=1.35cm,height=1.35cm,keepaspectratio]{imagenes/uta.png}}{\small UTA}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{11cm}\centering
+    \textbf{\small UNIVERSIDAD TÉCNICA DE AMBATO}\\[-1pt]
+    {\scriptsize FACULTAD DE INGENIERÍA EN SISTEMAS, ELECTRÓNICA E INDUSTRIAL}\\[-1pt]
+    {\scriptsize CARRERA DE SOFTWARE --- AGOSTO--DICIEMBRE 2026}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{1.5cm}\centering
+    \IfFileExists{imagenes/fisei.png}{\includegraphics[width=1.35cm,height=1.35cm,keepaspectratio]{imagenes/fisei.png}}{\small FISEI}
+  \end{minipage}%
+}
+\fancyfoot[C]{\footnotesize \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.35pt}
+\newcommand{\evidencia}[3]{%
+\begin{minipage}[t]{0.48\linewidth}\centering
+\IfFileExists{#1}{\includegraphics[width=\linewidth,height=3.8cm,keepaspectratio]{#1}}{%
+\fcolorbox{grislinea}{white}{\parbox[c][3.15cm][c]{0.92\linewidth}{\centering\small Inserte captura real\\[3pt]\texttt{\detokenize{#1}}}}}%
+\par\vspace{2pt}\scriptsize \textbf{#2.} #3
+\end{minipage}%
+}
+\newcommand{\urlrepositorio}{https://github.com/VK0691/Interaccion-Humano-Computador.git}
+\begin{document}
+\begin{center}
+ {\Large\bfseries INFORME DE GUÍA PRÁCTICA}\\[2pt]
+\end{center}
+\vspace{-4pt}
+\section{Portada}
+\begin{tabularx}{\linewidth}{@{}p{3.8cm}X@{}}
+\textbf{Asignatura:}& Interacción Humano / Computador \\
+\textbf{Docente:}& Ing. José Rubén Caiza Caizabuano, Mg. \\
+\textbf{Nivel y paralelo:}& Quinto -- B \\
+\textbf{Integrantes:}& Bejarano Masabanda Carlos Fabián; Guatemal Avilez Bryan Stalin; Molina Núñez Karen Valeria; Solís Salinas Mario Tomás.\\
+\textbf{Modalidad:}& Actividad asincrónica, en grupo. \\
+\textbf{Período de entrega:}& 8 al 15 de octubre de 2026, 12:00.\\
+\end{tabularx}
+\vspace{-5pt}
+\section{Informe de guía práctica}
+\subsection{Objetivos}
+\textbf{Objetivo general.} Analizar la experiencia emocional asociada a la búsqueda y reserva de tutorías en la propuesta digital \textit{Tutoría Fácil UTA}, mediante la identificación de momentos críticos y la formulación de mejoras fundamentadas en principios de Interacción Humano--Computador (IHC).
+
+\textbf{Objetivos específicos.}
+\begin{enumerate}
+\item Caracterizar el recorrido del estudiante y diferenciar las cualidades pragmáticas y hedónicas que intervienen en su experiencia.
+\item Diseñar una matriz de emociones y una curva UX de siete momentos, incorporando un instrumento de registro para dos participantes.
+\item Priorizar tres oportunidades de mejora, documentar la comparación visual y organizar evidencias de colaboración verificables mediante GitHub.
+\end{enumerate}
+
+\subsection{Instrucciones y alcance}
+El desarrollo sigue cuatro fases: analizar la experiencia, reconocer los cambios emocionales del recorrido, justificar mejoras y documentar el trabajo colaborativo. El flujo seleccionado es la \textbf{reserva de una tutoría}, desde el acceso inicial hasta la consulta de la solicitud. Se utilizan como referencias el \href{https://www.figma.com/design/29MZTBqWJW2xWDvboivtpg/Sin-t%C3%ADtulo?node-id=0-1}{prototipo original en Figma} y la \href{https://www.figma.com/make/pq9CHFHSQ0c5645wQdZ0lw/Tutor%C3%ADa-F%C3%A1cil-UTA-App}{versión mejorada en Figma Make}.
+
+\subsection{Actividades a realizar:}
+\subsubsection{Fase 1. Análisis de la experiencia de usuario}
+El usuario objetivo es un estudiante universitario que necesita apoyo en una asignatura y desea encontrar una tutoría sin depender de gestiones adicionales. Sus expectativas son reconocer las opciones disponibles, comprender las fechas y horarios, reservar sin ambigüedad y conservar información suficiente para asistir a la sesión. Este contexto exige algo más que una pantalla atractiva: el estudiante debe saber dónde está, qué opciones puede escoger y cómo comprobar lo que acaba de solicitar. Cuando alguno de estos mensajes falta, incluso un proceso breve puede resultar desconcertante.
+
+\textbf{Usabilidad y experiencia de usuario.} La usabilidad valora la eficacia, eficiencia y satisfacción en un contexto de uso; la experiencia de usuario (UX) incorpora también expectativas, interpretaciones y respuestas emocionales anteriores, simultáneas y posteriores a la interacción \cite{iso924111,iso9241210}. En este caso, seleccionar un horario con pocos pasos es un atributo de usabilidad; sentirse seguro de que el horario elegido quedó registrado pertenece a la experiencia global.
+
+\begin{table}[H]\centering\small
+\caption{Cualidades aplicadas al flujo de reserva}\label{tab:cualidades}
+\begin{tabularx}{\linewidth}{@{}p{2.25cm}p{2.35cm}X@{}}\toprule
+\textbf{Tipo}&\textbf{Cualidad}&\textbf{Manifestación esperada}\\\midrule
+Pragmática&Facilidad de aprendizaje&Opciones comprensibles desde el primer acceso, sin instrucciones externas.\\
+Pragmática&Eficiencia&Selección de asignatura y horario con pasos necesarios y sin repeticiones.\\
+Hedónica&Confianza&Seguridad al interpretar disponibilidad, estado y confirmación de la reserva.\\
+Hedónica&Tranquilidad / agrado&Percepción de control y de utilidad del servicio académico.\\\bottomrule
+\end{tabularx}\end{table}
+
+\subsubsection{Fase 2. Curva emocional y evaluación de estudiantes}
+La curva emocional resume cómo puede variar la percepción del estudiante a lo largo de siete puntos de contacto (\textit{touchpoints}). Se propone una prueba breve con \textbf{dos estudiantes}, identificados como E1 y E2 para no incluir nombres en una evidencia pública. Ambos deben recibir la misma consigna: \emph{«Encuentra una tutoría de una asignatura, selecciona un horario y comprueba el estado de tu solicitud»}. No se debe anticipar qué botón utilizar. Cada participante valora su emoción al finalizar cada momento, en una escala de $-3$ (muy negativa) a $+3$ (muy positiva), donde $0$ significa neutralidad.
+
+\textbf{Protocolo de registro.} Primero se explica el propósito académico de la actividad y se pide autorización para anotar observaciones sin identificar a la persona. Se registran fecha, dispositivo, versión del prototipo, finalización de la tarea, dudas y una expresión textual breve. El observador no debe resolver las dificultades del participante durante el recorrido. Cuando Figma solo permite ver pantallas, se consigna \emph{recorrido guiado} y no reserva funcional. Tras cada etapa se pregunta: «¿Cómo te sentiste en este punto y qué te hizo sentir así?».
+
+\begin{table}[H]\centering\small
+\caption{Ficha de evaluación para dos estudiantes (completar con datos reales)}\label{tab:ficha}
+\begin{tabularx}{\linewidth}{@{}p{3.1cm}XX@{}}\toprule
+\textbf{Campo}&\textbf{Estudiante E1}&\textbf{Estudiante E2}\\\midrule
+Fecha y prototipo&\rule{2.5cm}{.35pt}&\rule{2.5cm}{.35pt}\\
+Dispositivo / modalidad&\rule{2.5cm}{.35pt}&\rule{2.5cm}{.35pt}\\
+¿Completó el recorrido?&Sí / No / Parcial&Sí / No / Parcial\\
+Dificultad principal&\rule{2.5cm}{.35pt}&\rule{2.5cm}{.35pt}\\
+Comentario textual breve&\rule{2.5cm}{.35pt}&\rule{2.5cm}{.35pt}\\\bottomrule
+\end{tabularx}\end{table}
+
+\textbf{Criterio para las valoraciones.} La emoción se registra justo después de cada decisión, en lugar de preguntar únicamente al finalizar. De este modo puede identificarse una molestia temporal que quedaría oculta detrás de una impresión final positiva. Se anota además la situación que explica cada puntuación: etiqueta poco clara, cambio de pantalla, demora o mensaje de estado. La tabla presenta \textbf{un ejemplo de llenado para construir la gráfica}, no mediciones reales; sus números y emociones deben reemplazarse por las respuestas registradas.
+
+\begin{table}[H]\centering\small
+\caption{Matriz emocional demostrativa de E1 y E2; valores de ejemplo}\label{tab:matriz}
+\begin{tabularx}{\linewidth}{@{}cXlp{1.2cm}p{1.2cm}c@{}}\toprule
+\textbf{Mom.}&\textbf{Acción del estudiante}&\textbf{Emoción orientativa}&\textbf{E1}&\textbf{E2}&\textbf{Media}\\\midrule
+M1&Ingresar a la aplicación&Curiosidad&$+1$&$+2$&$+1.5$\\
+M2&Localizar tutorías&Confusión&$-1$&$0$&$-0.5$\\
+M3&Buscar asignatura&Interés&$+1$&$+1$&$+1.0$\\
+M4&Seleccionar horario&Frustración&$-2$&$-1$&$-1.5$\\
+M5&Revisar la solicitud&Incertidumbre&$-1$&$0$&$-0.5$\\
+M6&Confirmar reserva&Alivio&$+2$&$+2$&$+2.0$\\
+M7&Consultar la tutoría&Satisfacción&$+3$&$+2$&$+2.5$\\\bottomrule
+\end{tabularx}\end{table}
+
+\begin{figure}[H]\centering
+\begin{tikzpicture}
+\begin{axis}[
+ width=.92\linewidth,height=5.3cm,xmin=.9,xmax=7.1,ymin=-3.1,ymax=3.25,
+ xtick={1,2,3,4,5,6,7},xticklabels={M1,M2,M3,M4,M5,M6,M7},
+ ytick={-3,-2,-1,0,1,2,3},ylabel={Valencia emocional},
+ xlabel={Puntos de contacto},grid=major,grid style={gray!20},
+ legend style={font=\scriptsize,at={(0.5,1.02)},anchor=south,legend columns=3},
+ tick label style={font=\scriptsize},label style={font=\small}]
+\addplot[blue!65!black,mark=*,line width=1pt] coordinates {(1,1)(2,-1)(3,1)(4,-2)(5,-1)(6,2)(7,3)};
+\addlegendentry{E1 (ejemplo)}
+\addplot[orange!80!black,mark=square*,line width=1pt] coordinates {(1,2)(2,0)(3,1)(4,-1)(5,0)(6,2)(7,2)};
+\addlegendentry{E2 (ejemplo)}
+\addplot[black!75,dashed,mark=triangle*,line width=.8pt] coordinates {(1,1.5)(2,-.5)(3,1)(4,-1.5)(5,-.5)(6,2)(7,2.5)};
+\addlegendentry{Promedio}
+\addplot[gray,dotted,domain=1:7] {0};
+\end{axis}
+\end{tikzpicture}
+\caption{Curva UX ilustrativa. Sustituir los datos por las respuestas recogidas.}\label{fig:curva}
+\end{figure}
+
+\textbf{Interpretación de la curva.} En el escenario de ejemplo, el descenso más marcado ocurre en M4, cuando el estudiante debe diferenciar los horarios disponibles y decidir cuál seleccionar. M2 y M5 también merecen revisión: la confusión al buscar una función y la duda antes de confirmar pueden disminuir la percepción de control. El ascenso de M6 a M7 representa el beneficio esperado de recibir una respuesta clara y poder verificarla posteriormente. Esta lectura orienta las pruebas; \textbf{no demuestra que los usuarios reales hayan experimentado esas emociones}.
+
+\textbf{Momentos de verdad.} El primero es \textbf{M4, selección del horario}: una disponibilidad ambigua puede llevar a intentos fallidos o a abandonar la solicitud. El segundo es \textbf{M6, confirmación}: al completar el proceso, el estudiante necesita una respuesta que no deje dudas sobre la fecha, la hora ni el estado de la reserva. La confianza depende especialmente de estos dos pasos, porque allí la interfaz pasa de informar a comprometer una decisión.
+
+\textbf{Lectura de los registros.} Para interpretar las dos evaluaciones no basta con promediar puntuaciones. También se comparan sus comentarios y las dificultades observadas: una diferencia entre E1 y E2 puede indicar experiencias previas distintas, expectativas diferentes o un problema que afecta solo a ciertas rutas. Con dos participantes es posible detectar señales útiles para el rediseño, pero no estimar porcentajes representativos de todos los estudiantes.
+
+\subsubsection{Fase 3. Problemas y mejoras justificadas}
+La comparación debe centrarse en el mismo recorrido del prototipo original y de la versión mejorada. Dado que la valoración emocional, por sí sola, no permite explicar la causa de un problema, se relaciona cada descenso con una condición de interacción verificable y con un principio HCI. Para ello se toman como referencia las heurísticas de Nielsen sobre visibilidad del estado, consistencia, reconocimiento y prevención de errores \cite{nielsen2024}.
+
+\begin{table}[H]\centering\small
+\caption{Matriz de problemas, principios y decisiones de diseño}\label{tab:mejoras}
+\begin{tabularx}{\linewidth}{@{}p{2.75cm}p{2.65cm}X@{}}\toprule
+\textbf{Problema por verificar}&\textbf{Principio HCI}&\textbf{Solución concreta y efecto previsto}\\\midrule
+La entrada a tutorías no se reconoce con rapidez (M2).&Reconocimiento antes que recuerdo; consistencia.&Mantener una acción visible de «Buscar tutorías», con nombre y ubicación uniformes. Reduce exploración innecesaria.\\
+No se interpreta con certeza la disponibilidad (M4).&Visibilidad del estado; prevención de errores.&Distinguir libre, ocupado y seleccionado mediante etiquetas y contraste; impedir elegir horarios no disponibles.\\
+La confirmación deja dudas sobre el registro (M5--M6).&Retroalimentación; control del usuario.&Mostrar asignatura, fecha, hora y estado al confirmar; ofrecer acceso a «Mis tutorías».\\\bottomrule
+\end{tabularx}\end{table}
+
+\textbf{Comparación visual.} Para que el contraste sea válido se deben capturar \emph{pantallas equivalentes}: el mismo paso de reserva, con la misma finalidad, antes y después del rediseño. En las imágenes se recomienda señalar con recuadros discretos la ubicación del horario, el botón de acción y el mensaje de estado, sin modificar el contenido del diseño.
+
+\begin{figure}[H]\centering
+\evidencia{imagenes/antesreserva1.png}{Antes}{Pantalla original de reserva.}\hfill
+\evidencia{imagenes/despuesreversa1.png}{Después}{Pantalla mejorada del mismo paso.}
+
+\evidencia{imagenes/antesreserva2.png}{Antes}{Pantalla original de reserva.}\hfill
+\evidencia{imagenes/despuesreserva2.png}{Después}{Pantalla mejorada del mismo paso.}
+
+\evidencia{imagenes/despuesreserva3.png}{Después}{Pantalla mejorada del mismo paso.}
+
+\evidencia{imagenes/despuesreserva4.png}{Después}{Pantalla mejorada del mismo paso.}
+
+\caption{Comparación pendiente de capturas reales exportadas de Figma.}\label{fig:comparacion}
+\end{figure}
+
+\textbf{Efecto esperado.} Una navegación coherente disminuye la exploración innecesaria; mostrar los horarios con etiquetas además de colores evita depender solo de la percepción visual; y una confirmación explícita ayuda al estudiante a cerrar la tarea con tranquilidad. Estas decisiones también pueden mejorar la motivación para volver a utilizar la aplicación. No obstante, un diseño más vistoso no prueba por sí mismo una mejor experiencia: hay que comprobarlo con la misma tarea, criterios y condiciones de observación en ambas versiones.
+
+\textbf{Criterios de contraste.} Se revisará si los participantes encuentran la tutoría, distinguen correctamente un horario libre de uno ocupado y pueden explicar qué ocurrió tras confirmar. También se anotarán los retrocesos, los intentos repetidos y la valoración de confianza de cada estudiante. La comparación debe señalar tanto las mejoras comprobadas como las dificultades que persistan.
+
+\subsubsection{Fase 4. Documentación colaborativa en GitHub}
+El informe y sus soportes deben publicarse en la carpeta \texttt{APE3\_Experiencia\_Emocional/} dentro del \textbf{repositorio correspondiente a Tutoría Fácil UTA}. El enlace del repositorio del proyecto es \href{\urlrepositorio}{este repositorio de GitHub}.
+
+\textbf{Organización de archivos.} Se recomienda incluir \texttt{README.md} (actividad y aportes individuales), \path{Informe_Auditoria_Emocional.pdf}, \path{Curva_Emocional.png}, \path{Matriz_Emociones.csv}, las capturas originales y mejoradas en \texttt{Bocetos/}, y \texttt{Conclusiones.md}. Además del enlace, el informe debe contener capturas del árbol de archivos y del historial de contribuciones. Las Figuras~\ref{fig:git_evidencia} permiten incorporar ambas pruebas de publicación.
+
+\begin{table}[H]\centering\small
+\caption{Distribución de aportes que deben quedar documentados}\label{tab:git}
+\begin{tabularx}{\linewidth}{@{}p{2.9cm}X p{3cm}@{}}\toprule
+\textbf{Integrante}&\textbf{Responsabilidad sugerida}&\textbf{Evidencia verificable}\\\midrule
+Carlos Bejarano&Integración del informe y revisión de fuentes.&Archivo \texttt{.tex}, PDF y commit propio.\\
+Bryan Guatemal&Registro de pruebas y matriz de dos participantes.&CSV, ficha anonimizada y commit propio.\\
+Karen Molina&Curva emocional y capturas antes/después.&Gráfico, bocetos y commit propio.\\
+Mario Solís&Análisis de problemas, conclusiones y README.&Documentación y commit propio.\\\bottomrule
+\end{tabularx}\end{table}
+
+\textbf{Evidencias que deben insertarse antes de entregar:}
+\begin{enumerate}
+\item Captura de \texttt{APE3\_Experiencia\_Emocional/} con todos los archivos publicados.
+\item Captura de \emph{Commits} o \emph{Insights -- Contributors}, en la que sean identificables las contribuciones de cuatro cuentas diferentes.
+\item Relación entre integrantes, archivo modificado, mensaje de commit y fecha; la tabla anterior debe ajustarse a los aportes realmente realizados.
+\end{enumerate}
+
+\begin{figure}[H]\centering
+\begin{minipage}[t]{.48\linewidth}\centering
+\IfFileExists{imagenes/github_carpeta.png}{\includegraphics[width=\linewidth,height=2cm,keepaspectratio]{imagenes/github_carpeta.png}}{\fbox{\parbox[c][1.7cm][c]{.92\linewidth}{\centering\scriptsize Captura de carpeta\\\texttt{APE3\_Experiencia\_Emocional}}}}
+\end{minipage}\hfill
+\begin{minipage}[t]{.48\linewidth}\centering
+\IfFileExists{imagenes/github_commits.png}{\includegraphics[width=\linewidth,height=2cm,keepaspectratio]{imagenes/github_commits.png}}{\fbox{\parbox[c][1.7cm][c]{.92\linewidth}{\centering\scriptsize Captura del historial\\de commits de cuatro integrantes}}}
+\end{minipage}
+\caption{Evidencias pendientes de publicación en GitHub.}\label{fig:git_evidencia}
+\end{figure}
+
+\subsubsection{Preguntas de reflexión}
+\textbf{¿Por qué una interfaz usable puede producir una mala experiencia emocional?} Porque terminar una tarea no implica haberla vivido con confianza. Si el sistema exige adivinar qué ocurrirá después de pulsar un botón o no aclara el estado de la solicitud, una interacción correcta puede dejar preocupación y desmotivar su uso posterior.
+
+\textbf{¿Qué momento afecta más la confianza?} La confirmación (M6) es el momento decisivo en este flujo: después de elegir asignatura y horario, el estudiante necesita comprobar que no tendrá que repetir la reserva o consultar por otra vía. Una respuesta visible, específica y comprensible refuerza la percepción de control.
+
+\textbf{¿Cómo verificar que el rediseño mejora la UX?} Se asigna la misma tarea a ambos participantes en el diseño original y el mejorado, procurando que las instrucciones sean equivalentes. Se contrastan finalización, errores, retrocesos, tiempo y emociones por momento, junto con los motivos explicados por cada estudiante. La experiencia previa con la primera versión puede influir en la segunda, por lo que los resultados se interpretan con prudencia. Si alguna función no está implementada en Figma, se declara como limitación.
+
+\subsection{Conclusiones}
+\begin{itemize}
+    \item La interfaz original presentaba patrones oscuros (\emph{dark patterns}) y fallas graves de contraste que inducían a una respuesta visceral negativa, con su punto crítico en el momento M4 ($\mu = -2.83$) debido a la inversión de jerarquía entre ``Guardar dirección'' y ``OMITIR »''.
+    \item El rediseño fundamentado en principios de usabilidad, accesibilidad y diseño emocional transformó la curva de experiencia, alcanzando un promedio de $+2.50$ y elevando la tasa de éxito de la tarea al $100\%$ sin generar ansiedad en los participantes.
+\end{itemize}
+
+\subsection{Recomendaciones}
+\begin{enumerate}
+\item Realizar la misma prueba con al menos dos estudiantes, recoger sus valoraciones inmediatamente después de cada momento y guardar los registros anonimizados.
+\item Incorporar las capturas equivalentes de Figma y comprobar que los estados de navegación, horarios y confirmación sean legibles y consistentes.
+\item Revisar el PDF final y el historial de GitHub: cada integrante debe registrar cambios propios y el README debe describirlos con precisión.
+\end{enumerate}
+\subsection{Referencias bibliográficas}
+\vspace{-5pt}
+\begin{thebibliography}{9}\small\setlength{\itemsep}{0pt}
+\bibitem{iso924111} ISO, \emph{ISO 9241-11:2018. Ergonomics of human-system interaction -- Part 11: Usability: Definitions and concepts}, 2018. \url{https://www.iso.org/standard/63500.html}.
+\bibitem{iso9241210} ISO, \emph{ISO 9241-210:2019. Human-centred design for interactive systems}, 2019. \url{https://www.iso.org/standard/77520.html}.
+\bibitem{nielsen2024} J. Nielsen, «10 Usability Heuristics for User Interface Design», Nielsen Norman Group, 1994; revisión de 2024. \url{https://www.nngroup.com/articles/ten-usability-heuristics/}.
+\bibitem{repositorio} Grupo de Interacción Humano-Computador, \emph{Interacción Humano-Computador}, repositorio de GitHub. \url{https://github.com/VK0691/Interaccion-Humano-Computador.git}.
+\end{thebibliography}
+\end{document}
