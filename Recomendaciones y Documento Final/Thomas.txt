@@ -1,0 +1,6 @@
+4. Mario Solís — Recomendaciones y documentación
+Responsable de explicar los tres problemas identificados, relacionarlos con principios HCI y redactar las conclusiones y reflexiones. También revisará la documentación del repositorio.
+Archivos que debe subir:
+- Conclusiones.md
+-Mejorar el pdf final
+Commit sugerido: docs: documentar mejoras HCI y conclusiones

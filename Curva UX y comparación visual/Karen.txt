@@ -1,0 +1,7 @@
+3. Karen Molina — Curva UX y comparación visual
+Responsable de construir la curva emocional a partir de las puntuaciones que proporcione Bryan y preparar las capturas equivalentes de Figma.
+Archivos que debe subir:
+- Curva_Emocional.png
+- Bocetos/antes_reserva.png
+- Bocetos/despues_reserva.png
+Commit sugerido: docs: agregar curva emocional y comparacion de interfaces
