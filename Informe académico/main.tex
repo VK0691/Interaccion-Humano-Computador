@@ -47,7 +47,7 @@
 \par\vspace{2pt}\scriptsize \textbf{#2.} #3
 \end{minipage}%
 }
-\newcommand{\urlrepositorio}{https://github.com/CarlangasBeja/IHC-APE6-Evaluacion-UX-Grupo5}
+\newcommand{\urlrepositorio}{https://github.com/VK0691/Interaccion-Humano-Computador.git}
 \begin{document}
 \begin{center}
  {\Large\bfseries INFORME DE GUÍA PRÁCTICA}\\[2pt]
@@ -184,7 +184,7 @@ La confirmación deja dudas sobre el registro (M5--M6).&Retroalimentación; cont
 \textbf{Criterios de contraste.} Se revisará si los participantes encuentran la tutoría, distinguen correctamente un horario libre de uno ocupado y pueden explicar qué ocurrió tras confirmar. También se anotarán los retrocesos, los intentos repetidos y la valoración de confianza de cada estudiante. La comparación debe señalar tanto las mejoras comprobadas como las dificultades que persistan.
 
 \subsubsection{Fase 4. Documentación colaborativa en GitHub}
-El informe y sus soportes deben publicarse en la carpeta \texttt{APE3\_Experiencia\_Emocional/} dentro del \textbf{repositorio correspondiente a Tutoría Fácil UTA}. El enlace disponible en el material de trabajo es \href{\urlrepositorio}{este repositorio de GitHub}, aunque actualmente está identificado como \emph{APE 6 -- Evaluación y validación de interfaces}; antes de entregar es necesario confirmar si se empleará también para este proyecto o sustituirlo por el repositorio correcto.
+El informe y sus soportes deben publicarse en la carpeta \texttt{APE3\_Experiencia\_Emocional/} dentro del \textbf{repositorio correspondiente a Tutoría Fácil UTA}. El enlace del repositorio del proyecto es \href{\urlrepositorio}{este repositorio de GitHub}.
 
 \textbf{Organización de archivos.} Se recomienda incluir \texttt{README.md} (actividad y aportes individuales), \path{Informe_Auditoria_Emocional.pdf}, \path{Curva_Emocional.png}, \path{Matriz_Emociones.csv}, las capturas originales y mejoradas en \texttt{Bocetos/}, y \texttt{Conclusiones.md}. Además del enlace, el informe debe contener capturas del árbol de archivos y del historial de contribuciones. Las Figuras~\ref{fig:git_evidencia} permiten incorporar ambas pruebas de publicación.
 
@@ -223,11 +223,11 @@ Mario Solís&Análisis de problemas, conclusiones y README.&Documentación y com
 \textbf{¿Cómo verificar que el rediseño mejora la UX?} Se asigna la misma tarea a ambos participantes en el diseño original y el mejorado, procurando que las instrucciones sean equivalentes. Se contrastan finalización, errores, retrocesos, tiempo y emociones por momento, junto con los motivos explicados por cada estudiante. La experiencia previa con la primera versión puede influir en la segunda, por lo que los resultados se interpretan con prudencia. Si alguna función no está implementada en Figma, se declara como limitación.
 
 \subsection{Conclusiones}
-\begin{enumerate}
-\item La evaluación de una reserva académica debe considerar tanto la facilidad para completar el flujo como la claridad de las respuestas que recibe el estudiante. Ambos aspectos influyen en su percepción de confianza y utilidad.
-\item La curva de siete momentos es una herramienta adecuada para localizar etapas sensibles, especialmente la elección de horario y la confirmación. Sus valores solo adquieren carácter de resultado cuando se registran observaciones reales de los participantes.
-\item Relacionar cada dificultad con una heurística y una decisión de diseño permite proponer cambios verificables. La documentación distribuida en GitHub aporta trazabilidad al trabajo grupal y evita que la evidencia dependa de una única entrega final.
-\end{enumerate}
+\begin{itemize}
+    \item La interfaz original presentaba patrones oscuros (\emph{dark patterns}) y fallas graves de contraste que inducían a una respuesta visceral negativa, con su punto crítico en el momento M4 ($\mu = -2.83$) debido a la inversión de jerarquía entre ``Guardar dirección'' y ``OMITIR »''.
+    \item El rediseño fundamentado en principios de usabilidad, accesibilidad y diseño emocional transformó la curva de experiencia, alcanzando un promedio de $+2.50$ y elevando la tasa de éxito de la tarea al $100\%$ sin generar ansiedad en los participantes.
+\end{itemize}
+
 \subsection{Recomendaciones}
 \begin{enumerate}
 \item Realizar la misma prueba con al menos dos estudiantes, recoger sus valoraciones inmediatamente después de cada momento y guardar los registros anonimizados.
@@ -240,5 +240,6 @@ Mario Solís&Análisis de problemas, conclusiones y README.&Documentación y com
 \bibitem{iso924111} ISO, \emph{ISO 9241-11:2018. Ergonomics of human-system interaction -- Part 11: Usability: Definitions and concepts}, 2018. \url{https://www.iso.org/standard/63500.html}.
 \bibitem{iso9241210} ISO, \emph{ISO 9241-210:2019. Human-centred design for interactive systems}, 2019. \url{https://www.iso.org/standard/77520.html}.
 \bibitem{nielsen2024} J. Nielsen, «10 Usability Heuristics for User Interface Design», Nielsen Norman Group, 1994; revisión de 2024. \url{https://www.nngroup.com/articles/ten-usability-heuristics/}.
+\bibitem{repositorio} Grupo de Interacción Humano-Computador, \emph{Interacción Humano-Computador}, repositorio de GitHub. \url{https://github.com/VK0691/Interaccion-Humano-Computador.git}.
 \end{thebibliography}
 \end{document}
